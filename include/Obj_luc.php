@@ -1,4 +1,5 @@
 <?php
+
 include('config.php');
 if (!isset($_POST['id'])) {
     $tab_connection = array(
@@ -14,8 +15,10 @@ if (!isset($_POST['id'])) {
 }
 
 /* ¨Pour les test */
-if ($_GET['id'] == test) {
-    query_nbr_note();
+if(isset($_GET['id'])) {
+    if ($_GET['id'] == 'test') {
+        bdd_connection($host, $username, $password);
+    }
 }
 /* Fin test */
 
@@ -27,12 +30,12 @@ function bdd_connection($pHost, $pUsername, $pPassword) {
         );
     } else {
         $tab_connection = array(
-            "text" => "Echec de la connexion au serveur ".$pHost."",
+            "text" => "Echec de la connexion au serveur " . $pHost . "",
             "id_connection" => "0"
         );
     }
 
-    MJson_encode($tab_connection, $tab_query);
+    MJson_connexion($tab_connection);
 }
 
 function bdd_query_note($pHost, $pUsername, $pPassword) {
@@ -63,8 +66,7 @@ function bdd_query_note($pHost, $pUsername, $pPassword) {
     MJson_encode($tab_connection, $tab_query);
 }
 
-function query_nbr_note($pHost, $pUsername, $pPassword)
-{
+function query_nbr_note($pHost, $pUsername, $pPassword) {
     if (mssql_connect($pHost, $pUsername, $pPassword) != FALSE) {
         $tab_connection = array(
             "text" => "Connexion au serveur distant réussie",
@@ -77,9 +79,9 @@ function query_nbr_note($pHost, $pUsername, $pPassword)
         );
     }
     mssql_select_db("GSB");
-    $query = mssql_query("select COUNT(*) as nbr from note_frais");    
+    $query = mssql_query("select COUNT(*) as nbr from note_frais");
     $tab_query_fetch = mssql_fetch_assoc($query);
-    $result=$tab_query_fetch["nbr"];    
+    $result = $tab_query_fetch["nbr"];
     MJson_encode($tab_connection, $result);
 }
 
@@ -87,6 +89,14 @@ function MJson_encode($tab_connection, $tab_query) {
     $tab = array(
         "tab_connection" => $tab_connection,
         "tab_query" => $tab_query
+    );
+
+    echo json_encode($tab);
+}
+
+function MJson_connexion($tab_connection) {
+    $tab = array(
+        "tab_connection" => $tab_connection,
     );
 
     echo json_encode($tab);
