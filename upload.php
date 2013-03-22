@@ -37,7 +37,7 @@ else
 		$data = "0";
 	}
 }
-/*
+
 $montant = stripslashes($_POST['tbx_montant']);
 $date = stripslashes($_POST['tbx_date']);
 $lieu = stripslashes($_POST['tbx_lieu']);
@@ -46,9 +46,9 @@ $commentaire = stripslashes($_POST['tbx_commentaire']);
 
 mssql_connect($host, $username, $password);
 mssql_select_db($database);
-$query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES (".$montant.", '".$lieu."', '".$commentaire."', "..", '".$new_filename."', "..")";
-mssql_query($query);
+//$query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES (".$montant.", '".$lieu."', '".$commentaire."', "..", '".$new_filename."', "..")";
+//mssql_query($query);
 mssql_close();
-*/
+
 echo $data; //on affiche finalement le résultat dans la page.
 ?>

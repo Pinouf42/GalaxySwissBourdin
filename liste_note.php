@@ -75,6 +75,9 @@ function Accueil()
 <input type="button" value="Editer/Cloturer la note U kidding me?!" onmouseover="showInfoNote('#info_note4', true);" onmouseout="showInfoNote('#info_note4', false);" class="btn_submit"/><br>
 <div id="info_note4" class="info_note"><b>Nombre de notes:</b> 0 - <b>Montant total:</b> 0€</div>
 
+
+<a href="create_note.php"><input type="button" value="Créer une note" class="btn_submit"/></a><br>
+
  </div>
 <!-- FIN CONTENT BASE -->
 </body>
