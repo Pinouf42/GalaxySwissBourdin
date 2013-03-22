@@ -7,5 +7,5 @@ $query_id_note = "SELECT MAX(id_note) FROM NOTE_FRAIS";
 $result_query = mssql_query($query_id_note);
 $res = mssql_fetch_array($result_query);
 mssql_close();
-//header('Location: saisie_note.php?note='.$res[0]);
+header('Location: saisie_note.php?note='.$res[0]);
 ?>

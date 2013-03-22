@@ -1,4 +1,12 @@
 <?
+if(isset($_GET['note']))
+{
+
+}
+else
+{
+   header('Location: liste_note.php');
+}
 include('include/language.php');
 include('include/menu.inc.php');
 ?>
