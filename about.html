@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <style>
+            body
+            {
+                background: #000;
+            }
+            
+            #accueil {
+                position: fixed;
+            	top: 40%;
+            	left: 50%;
+            	margin-left: -500px;
+            	width: 1000px;
+            	height: 300px;
+            	font-size: 70px;
+            	color: #FFF;
+            	display: none;
+            	text-align: center;
+            }
+        </style>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.animate-colors.js"></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript"  src="js/Segoe_UI_Light_300.font.js"></script>
+        <script>
+        Cufon.replace('div#accueil');
+        
+        function About()
+        {
+            $("#accueil").fadeIn(2000, function()
+            {
+                $("html body").animate({backgroundColor:"#800000"}, 1000);
+                $("#accueil").fadeOut(500, function()
+		        {
+                    document.getElementById("accueil").innerHTML = "Sont des creations originales de";
+            		Cufon.replace('div#accueil');
+                    $("#accueil").fadeIn(2000, function()
+                    {
+                        $("html body").animate({backgroundColor:"#FF9900"}, 1000);
+                        $("#accueil").fadeOut(500, function()
+            	        {
+                            document.getElementById("accueil").innerHTML = "Luc, Laurent et Julien";
+                    		Cufon.replace('div#accueil');
+                            $("#accueil").fadeIn(2000, function()
+                            {
+                                $("html body").animate({backgroundColor:"#336600"}, 1000);
+                                $("#accueil").fadeOut(500, function()
+                                {
+                                    document.getElementById("accueil").innerHTML = "Veuillez respecter leur travail";
+                            		Cufon.replace('div#accueil');
+                                    $("#accueil").fadeIn(2000, function()
+                                    {
+                                        $("html body").animate({backgroundColor:"#336699"}, 1000);
+                                        $("#accueil").fadeOut(500, function()
+                                        {
+                                            document.getElementById("accueil").innerHTML = "En ne recopiant pas les sources";
+                                    		Cufon.replace('div#accueil');
+                                            $("#accueil").fadeIn(2000, function()
+                                                {
+                                                    $("html body").animate({backgroundColor:"#990033"}, 1000);
+                                                    $("#accueil").fadeOut(500, function()
+                                                    {
+                                                        document.getElementById("accueil").innerHTML = "Merci :)";
+                                                		Cufon.replace('div#accueil');
+                                                        $("#accueil").fadeIn(2000, function()
+                                                        {
+                                                            $("html body").animate({backgroundColor:"#FFF"}, 1000);
+                                                            $("#accueil").animate({color:"#000"}, 500);
+                                                            $("#accueil").fadeOut(500, function()
+                                                            {
+                                                                document.getElementById("accueil").innerHTML = "PS: On aime les trucs qui font pouet pouet.";
+                                                            	Cufon.replace('div#accueil');
+                                                                $("#accueil").fadeIn(2000, function()
+                                                                {
+                                                                    $("#accueil").fadeOut(500, function()
+                                                                    {
+                                                                        window.location = "http://www.whpinouf.com/gsb/saisie_note.php";
+                                                                    })
+                                                                });
+                                            		        });
+                                                        });
+                                    		        });
+                                                });
+                        		        });
+                                    });
+                		        });
+                            });
+        		        });
+                    });
+		        });
+            });
+        }
+        </script>
+    </head>
+    <body onload="About()">
+        
+        <div id="accueil">Le site GSB et son contenu</div>
+        
+    </body>
+</html>

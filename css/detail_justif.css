@@ -1,0 +1,274 @@
+html{
+    margin :0;
+    padding : 0;
+}
+
+body{
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+#secondary{
+    width: 610px;     
+    margin-left: 10px;
+}
+
+/* Debut css pour detail note de frais */
+#dialog_form{    
+    font-size: 12px;  
+    font-variant: small-caps;
+    -moz-box-shadow:0px 0px 4px #000;
+    -webkit-box-shadow:0px 0px 4px #000;
+    box-shadow:0px 0px 8px #000;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    border-top: 2px solid #666;  
+    float: left;   
+    width: 600px;
+    background-color: #FFFFFF;
+
+    /* Margin pour l'espacement dans le slide */
+    margin-bottom: 25px;
+    margin-top: 25px;
+
+}
+
+#header_dialog_form {    
+    font-weight: bolder;
+    width: auto;    
+    color: white;
+    padding:12px 5px 12px 5px;
+    text-align: center;
+    background: #20282D; /* old browsers */
+    background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#20282D), color-stop(51%,#252E34), color-stop(100%,#222A30)); /* webkit */
+    text-shadow:0px 0px 1px #fff;
+    text-shadow:1px 1px 1px #000;
+    font-size: 15px;
+    border-bottom: 1px solid #AAA;
+}
+
+#info_visiteur{
+    width: auto;
+    text-align: left;    
+    height: auto; 
+    float: left;    
+}
+
+#content_info_visiteur{
+    margin: 5px 5px 5px 5px;
+}
+
+#show_img_justif{
+    max-height: 80px;
+    border-left: 1px solid #AAA;
+    max-width: 200px;
+    float: right;
+}
+
+#info_justif{
+    float: left;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #DDD;
+    position: relative;     
+}
+
+#content_info_justif{
+    padding: 5px 5px 5px 5px;   
+    height: auto;
+}
+
+#confirm_buton{
+    bottom:0;
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+#buton{
+    margin-left: 10px;
+    float: left;
+    outline: 0;
+    padding: 5px 12px;
+    display: block;
+    color: #9fa8b0;
+    font-weight: bold;
+    text-shadow: 1px 1px #1f272b;
+    border: 1px solid #1c252b;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #232B30; /* old browsers */
+    background: -moz-linear-gradient(top, #3D4850 3%, #313d45 4%, #232B30 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #3D4850), color-stop(4%, #313d45), color-stop(100%, #232B30)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3D4850', endColorstr='#232B30', GradientType=0 ); /* ie */
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+#buton:hover{
+    color: #fff;
+    background: #4C5A64; /* old browsers */
+    background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #4C5A64), color-stop(4%, #404F5A), color-stop(100%, #2E3940)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4C5A64', endColorstr='#2E3940', GradientType=0 ); /* ie */
+    cursor: pointer;
+}
+
+.btn_submit{
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title_lbl_detail_justif{
+    text-decoration: underline;
+    padding-right: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.hide{
+    height: 0px;
+    display: none;
+}
+
+
+
+/* Fin css pour detail note de frais */
+
+/* Début css pour slider */
+
+
+
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:-90px;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:-90px;}
+ol.bjqs-markers{list-style: none; padding: 0; margin: 0; width:100%;}
+ol.bjqs-markers.h-centered{text-align: center;margin-top: 10px; width:500px;position: absolute; left: -100px;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+
+.bjqs-next a, .bjqs-prev a{
+    width: 60px;
+    text-align: center;
+    background  : #000;
+    border      : 1px solid #000;
+    color       : #FFF;
+    cursor      : pointer;
+    display:block;
+    padding:10px;    
+    text-decoration: none;    
+}
+
+.bjqs-next a:hover, .bjqs-prev a:hover{
+    background: #666;
+}
+
+#banner-fade,
+#banner-slide{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+div.bjqs-wrapper{
+    box-shadow: 0 0 4px 2px #666;
+    cursor: pointer;
+
+}
+
+ol.bjqs-markers li a{
+    padding:5px 10px;
+    background:#000;
+    color:#fff;
+    margin:5px;
+    width: 36px;
+    text-decoration: none;
+    border: 1px solid #000;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+    background: #666;
+}
+
+p.bjqs-caption{    
+    background : #000;    
+    color      : white;    
+    opacity    : 0.7;
+    filter     : alpha(opacity=70);
+}
+
+.slide_justif-prev, .slide_justif-next {
+
+    font-family : "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size   : 12px;
+    height      : 30px;    
+    margin-top: 65px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding  : 0px 10px;
+    width: 60px;
+    text-align: center;
+    z-index  : 1000;
+    float: left;
+}
+
+.slide_justif-prev:hover, .slide_justif-next:hover {
+
+}
+
+/* Fin css pour slider */
+
+/* Début css info popup */
+
+#popup_info{
+    display: none;
+}
+.info, .success, .warning, .error, .validation {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+.info {
+color: #00529B;
+background-color: #BDE5F8;
+background-image: url('../images/info.png');
+}
+.success {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('../images/success.png');
+}
+.warning {
+color: #9F6000;
+background-color: #FEEFB3;
+background-image: url('../images/warning.png');
+}
+.error {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('../images/error.png');
+}
+
+/* Fin css info popup */
