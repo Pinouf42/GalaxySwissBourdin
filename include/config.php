@@ -3,5 +3,5 @@
 $username = "sa";
 $password = "p@ssw0rd";
 $database = "GSB";
-$host = "172.16.1.47";
+$host = "178.32.241.99";
 ?>
