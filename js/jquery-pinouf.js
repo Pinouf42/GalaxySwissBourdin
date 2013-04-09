@@ -305,7 +305,7 @@ function deleteTicket(id_ticket, id_supp, id_edit)
 {
         $.ajax({
             type: "GET",
-            url: "delete_ticket.php",
+            url: "../delete_ticket.php",
             data: "justif="+id_ticket,
             //success: function(msg){
              //   alert( "Data Saved: " + msg );
