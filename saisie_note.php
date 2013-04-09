@@ -91,7 +91,7 @@ function Accueil()
     <?php echo $lang['attention_texte2']; ?><br />
     <br />
     <img src="images/btn_oui.png" onclick="confirm_box(true);"/><img src="images/btn_non.png" onclick="confirm_box(false);" /></div>
-<br/><center><a href="cloturer_note.php?note=<?php echo $id_note; ?>"><input type="button" class="btn_submit" value="CLOTURER CETTE FACKING NOTE !"/></a></center>  
+<br/><center><a href="include/cloturer_note.php?note=<?php echo $id_note; ?>"><input type="button" class="btn_submit" value="CLOTURER CETTE NOTE"/></a></center>  
 <div id="lightbox_bg" onclick="close_add_ticket();"></div>
   <div id="lightbox_body">
       <div id="step1_1" class="step1_1"></div><div id="step2_0" class="step2_0"></div><div id="step2_1" class="step2_1"></div><div id="step3_0" class="step3_0"></div><div id="step3_1" class="step3_1"></div>
