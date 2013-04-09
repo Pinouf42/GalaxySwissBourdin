@@ -103,8 +103,8 @@
                 <b>Commentaire : </b>(255 caractères maximun)<br/>
                 <input id="valid_commentaire" title="ok" type="text" maxlength="255" onmouseover="this.title=this.value"/><br/>
                 (<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>
-                <input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value);"/>
-                <input id="buton" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value);" />
+                <input id="buton_valider" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value);"/>
+                <input id="buton_refuser" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value);" />
              </div>
           </div>
         <div id="popup_info" class="success"></div>

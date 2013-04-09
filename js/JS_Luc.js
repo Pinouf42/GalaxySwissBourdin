@@ -44,14 +44,15 @@ function find() {
 
 } 
 
-function validation(choix,value_valid)
-{        
-    
+function validation(choix,value_valid,id_note,id_pers)
+{   
+    var Mnote=id_note;
+    var Mpers = id_pers;
     //0 ouverture de la fenetre de validation
     //1 Cliquer bouton annuler
     //2 Clique bouton valider ou refuser
     if(choix==0)
-    {
+    {        
         var str= document.getElementById("content_confirm_box").innerHTML;
         var n= str.replace("#value_validation#",value_valid.toLowerCase())
         .replace("#validation_value#",value_valid.toLowerCase());
@@ -67,7 +68,7 @@ function validation(choix,value_valid)
         clear_confir_box();
          
     }else if(choix==2)
-    {      
+    {    
         if(document.getElementById("valid_commentaire").value=="")
         {
             if(confirm("Il n'y a pas de commentaire êtes vous sur de vouloir " + value_valid + " ?")==true)
@@ -77,10 +78,19 @@ function validation(choix,value_valid)
             
         }
         else
-        {
-                
-        }
-                
+        {               
+            var etat;
+            if(value_valid.toLowerCase()=="valider")
+            {
+                etat = 1;  
+            }
+            else if(value_valid.toLowerCase()=="refuser")
+            {
+                etat = 0; 
+            }
+            var commentaire = document.getElementById("valid_commentaire").value;             
+            validation_requete_mssql(id_note,id_pers,commentaire, etat);
+        }              
         
     }
 }
@@ -96,4 +106,22 @@ function clear_confir_box()
         document.getElementById("content_confirm_box").innerHTML=str;
         $("#black").fadeOut(400);
     });
+}
+
+function validation_requete_mssql(id_note,id_pers,commentaire,etat)
+{
+    xhr=new XMLHttpRequest();
+    xhr.open('POST', 'include/Obj_luc.php'); 
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send('Q=QnI&id_note="'+id_note+'"&id_pers="'+id_pers+'"&comm="'+commentaire+'"&etat="'+etat+'');  
+    alert('Q=QnI&id_note="'+id_note+'"&id_pers="'+id_pers+'"&comm="'+commentaire+'"&etat="'+etat+'');die();
+    xhr.onreadystatechange = function() {                            
+        if(xhr.readyState == 4) {                                 
+            alert(xhr.responseText); 
+            
+            //MANQUE ID_PERS et ID_NOTE à faire passer dans la fonction validation_requete_mssql
+            
+        } 
+    }
+    
 }
