@@ -68,7 +68,7 @@ $Liste = '<div id="banner-fade" style="height: 180px; max-width: 280px; position
             $commentaire = $sql[$i]["commentaire"];
 
 
-            $Liste .= '<li onclick="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\')" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">
+            $Liste .= '<li onclick="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">
                 <img style="height: 180px; width: 280px;" src = "http://www.whpinouf.com/gsb/upload/'.$url_photo_justif.'" title = "' . $lib_dep . ' : ' . $montant . '€ - ' . $url_photo_justif . '"/>
                 <p class="bjqs-caption">' . $lib_dep . ' : ' . $montant . '€ - ' . $url_photo_justif . '</p></li>';
             }

@@ -27,7 +27,7 @@
                 });      
         }
         
-        function show_ticket(id_justif,lib_dep,montant,lieu,commentaire)
+        function show_ticket(id_justif,lib_dep,montant,lieu,commentaire,url_photo)
         {      
             if(Masession==1)
             {
@@ -51,19 +51,27 @@
                     n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
                     document.getElementById("justif").innerHTML=n;
                     
+                    var n = "http://www.whpinouf.com/gsb/upload#url_photo#";
+                    document.getElementById("show_img_justif").innerHTML=n;
+                    
                    
                 });                
             }
             else
             {
+            
                 Masession=1;
                 var str=document.getElementById("justif").innerHTML;                  
                 var n=str.replace("#id_justif#",id_justif)
                 .replace("#lib_dep#",lib_dep)
                 .replace("#montant#",montant)
                 .replace("#lieu#",lieu)
-                .replace("#commentaire#",commentaire);   
+                .replace("#commentaire#",commentaire); 
                 document.getElementById("justif").innerHTML=n;
+                
+                var str=document.getElementById("show_img_justif").src;               
+                var n=str.replace("#url_photo#",url_photo); 
+                document.getElementById("show_img_justif").src=n;
                 
                 $(".hide").stop(); 
                 $(".hidden").stop();                                                          
@@ -109,7 +117,7 @@
                     <div id="header_dialog_form" class="hidden">#titre_detail_justif#</div>
                     <div id="content_dialog" class="hidden">
                         <div id="info_justif">
-                            <img id="show_img_justif" src="../images/ticket.png"></img>
+                            <img id="show_img_justif" src="http://www.whpinouf.com/gsb/upload/#url_photo#"></img>
                             <div id="content_info_justif">
                                 <table cellspacing="5" id="justif">
                                     <tr>
