@@ -99,6 +99,8 @@ function perform_step()
 {
 	if(step == 1)
 	{
+            if($("#tbx_send").val() != "")
+            {
 		step = 2;
 		$("#content_step1").fadeOut(200, function()
 		{
@@ -108,6 +110,11 @@ function perform_step()
 		{
 			$("#step2_1").fadeIn(200);
 		});
+            }
+            else
+            {
+                alert('Veuillez sélectionner la photo de votre ticket.')
+            }
 	}
 	else
 	{
