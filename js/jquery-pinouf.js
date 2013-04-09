@@ -303,7 +303,7 @@ function showAdd(id_add, hide)
 
 function deleteTicket(id_ticket, id_supp, id_edit)
 {
-        $.get("delete_ticket.php", { justif: id_ticket} );
+        $.get("delete_ticket.php", { justif: id_ticket } );
 	$(id_supp).stop().fadeOut(100);
 	$(id_edit).stop().fadeOut(100, function()
 	{
