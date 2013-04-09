@@ -23,15 +23,20 @@
                     n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_lieu#</b></td><td>#lieu#</td></tr>"                
                     n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
                     document.getElementById("justif").innerHTML=n;
+                    
+                    var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
+                    document.getElementById("show_img_justif").src=n;
+                    
                    
                 });      
         }
         
         function show_ticket(id_justif,lib_dep,montant,lieu,commentaire,url_photo)
         {      
+                        
             if(Masession==1)
             {
-                setTimeout(function(){show_ticket(id_justif,lib_dep,montant,lieu,commentaire)}
+                setTimeout(function(){show_ticket(id_justif,lib_dep,montant,lieu,commentaire,url_photo)}
                 ,1200);                
             }
             $(".hide").stop();
@@ -51,8 +56,9 @@
                     n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
                     document.getElementById("justif").innerHTML=n;
                     
-                    var n = "http://www.whpinouf.com/gsb/upload#url_photo#";
-                    document.getElementById("show_img_justif").innerHTML=n;
+                    var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
+                    document.getElementById("show_img_justif").src=n;
+                    
                     
                    
                 });                
