@@ -306,7 +306,7 @@ function deleteTicket(id_ticket, id_supp, id_edit)
         $.ajax({
             type: "POST",
             url: "include/delete_ticket.php",
-            data: "justif="+id_ticket.replace('#t', ''),
+            data: "justif="+id_ticket.replace('#t', '')
         });
 	$(id_supp).stop().fadeOut(100);
 	$(id_edit).stop().fadeOut(100, function()
