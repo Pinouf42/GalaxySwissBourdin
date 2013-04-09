@@ -37,15 +37,17 @@ $lang['infobulle_corriger'] = "Vous devez corriger ce champ";
 
 //Luc
 
+
 $lang['titre_detail_justif'] = "Récapitulatif justificatif";
 $lang['lbl_visiteur'] = "Visiteur :";
 $lang['lbl_responsable'] ="Responsable :";
 $lang['lbl_region'] ="Région :";
 $lang['lbl_num_justif'] ="N° Justificatif :";
-$lang['lbl_date_facture']= "Date facture :";
 $lang['lbl_date_soumission'] ="Date soumission :";
 $lang['lbl_type_depense'] ="Type dépense :";
 $lang['lbl_montant'] ="Montant :";
+$lang['lbl_lieu']="Lieu :";
+$lang['lbl_commentaire']="Commentaire :";
 $lang['btn_valider'] = "Valider";
 $lang['btn_refuser'] ="Refuser";
 $lang['btn_annuler']="Annuler";

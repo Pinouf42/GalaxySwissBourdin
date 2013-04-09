@@ -33,6 +33,19 @@ body{
 
 }
 
+
+.close{
+    background: url('../images/close.png')no-repeat center;    
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 602px;
+    cursor: pointer;
+    margin-top: -13px;
+    z-index: 10000;
+}
+
 #header_dialog_form {    
     font-weight: bolder;
     width: auto;    
@@ -60,11 +73,15 @@ body{
 }
 
 #show_img_justif{
-    max-height: 80px;
+    max-height: 100px;
+    margin: 10px 15px;
     border-left: 1px solid #AAA;
-    max-width: 200px;
+    box-shadow: 0 0 4px 2px #666;
+    max-width: 300px;
     float: right;
+    cursor: pointer;
 }
+
 
 #info_justif{
     float: left;
