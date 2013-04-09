@@ -108,11 +108,8 @@ body{
 }
 
 #buton{
-    margin-left: 10px;
-    float: left;
     outline: 0;
     padding: 5px 12px;
-    display: block;
     color: #9fa8b0;
     font-weight: bold;
     text-shadow: 1px 1px #1f272b;
@@ -127,9 +124,12 @@ body{
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
     -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
     -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
+    font-family: Arial, Verdana, Sans-serif;
     transition: all 0.5s;
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
+    margin-left: 10px;
+    margin-bottom:10px;
 }
 
 #buton:hover{
@@ -261,31 +261,82 @@ p.bjqs-caption{
     display: none;
 }
 .info, .success, .warning, .error, .validation {
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
 }
 .info {
-color: #00529B;
-background-color: #BDE5F8;
-background-image: url('../images/info.png');
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../images/info.png');
 }
 .success {
-color: #4F8A10;
-background-color: #DFF2BF;
-background-image:url('../images/success.png');
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
 }
 .warning {
-color: #9F6000;
-background-color: #FEEFB3;
-background-image: url('../images/warning.png');
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
 }
 .error {
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('../images/error.png');
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
 }
 
 /* Fin css info popup */
+
+
+/* Début Popup validation */
+
+#content_confirm_box{
+    margin:10px 0px 10px 0px  ;
+    height: 100%;
+}
+
+#content_confirm_box input{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#confirm_box {
+    width: 350px;
+    height: 150px;
+    background-color: #FFF;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+    z-index: 1000;
+    box-shadow: 0px 1px 10px #222;
+    -moz-box-shadow: 0px 1px 10px #222;
+    -webkit-box-shadow: 0px 1px 10px #222;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+}
+#confirm_box_header {
+    width: 360px;
+    height: 10px;
+    padding: 15px;
+    text-align: center;
+    background: #DDD;
+    font-size: 15px;
+    border-bottom: 1px solid #AAA;
+    margin-top: -50px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+#confirm_box img:hover {
+    cursor: pointer;
+}
+
+/* Fin Popu validation */

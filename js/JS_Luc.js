@@ -1,8 +1,4 @@
-   
-function show_popup()
-{
-    document.getElementById("popup_info").InnerHTML="Me voilà";
-}
+
 
 var g_Pays = false;
 function Accueil(Obj)
@@ -47,3 +43,19 @@ function find() {
     }
 
 } 
+
+function validation(id,value_valid)
+{        
+    if(id==0)
+    {
+        var str= document.getElementById("content_confirm_box").innerHTML;
+        var n=str.replace("#value_validation#",value_valid.toLowerCase()); 
+        document.getElementById("content_confirm_box").innerHTML=n;
+    
+        $("#confirm_box").fadeIn(400);
+    }
+    else if(id==1)
+    {
+        $("#confirm_box").fadeOut(400);
+    }
+}
