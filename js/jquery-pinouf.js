@@ -304,12 +304,12 @@ function showAdd(id_add, hide)
 function deleteTicket(id_ticket, id_supp, id_edit)
 {
         $.ajax({
-            type: "GET",
-            url: "../delete_ticket.php",
-            data: "justif="+id_ticket,
-            //success: function(msg){
-             //   alert( "Data Saved: " + msg );
-            //}
+            type: "POST",
+            url: "delete_ticket.php",
+            data: "justif="+id_ticket.replace('#t', ''),
+            success: function(msg){
+               alert( "Data Saved: " + msg );
+            }
         });
 	$(id_supp).stop().fadeOut(100);
 	$(id_edit).stop().fadeOut(100, function()
