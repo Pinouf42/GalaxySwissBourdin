@@ -175,6 +175,7 @@ function lance_upload()
 		}
 		else
 		{
+                    alert(retour);
 			$('#content_step3').html(upload_reussi);
 			Cufon.replace("div#content_step3");
                         $("#ticket_conteneur").animate({width:'+=185px'}, 500);

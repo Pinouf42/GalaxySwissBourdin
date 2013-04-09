@@ -1,6 +1,7 @@
 <?
 include('include/language.php');
 include('include/menu.inc.php');
+include('include/config.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -66,14 +67,26 @@ function Accueil()
 </div>
 
 <div id="contenu">
-<input type="button" value="Editer/Cloturer la note QQ+ noob" onmouseover="showInfoNote('#info_note1', true);" onmouseout="showInfoNote('#info_note1', false);" class="btn_submit"/><br>
+    <?php
+        mssql_connect($host, $username, $password);
+        mssql_select_db($database);
+        $query = "SELECT * FROM NOTE_FRAIS WHERE clos_note = 0";
+        $executed_query = mssql_query($query);
+        while($result = mssql_fetch_array($executed_query))
+        {
+            echo "<a href=\"saisie_note.php?note=".$result[0]."\"><input type=\"button\" value=\"".$result[2]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"btn_submit\"/></a><br>";
+            echo "<div id=\"info_note".$result[0]."\" class=\"info_note\"><b>Nombre de justificatifs:</b> 13 - <b>Montant total:</b> 465,64€</div>";
+            
+        }
+    ?>
+<!--<input type="button" value="Editer/Cloturer la note QQ+ noob" onmouseover="showInfoNote('#info_note1', true);" onmouseout="showInfoNote('#info_note1', false);" class="btn_submit"/><br>
 <div id="info_note1" class="info_note"><b>Nombre de notes:</b> 13 - <b>Montant total:</b> 465,64€</div>
 <input type="button" value="Editer/Cloturer la note get a cancer and go die" onmouseover="showInfoNote('#info_note2', true);" onmouseout="showInfoNote('#info_note2', false);" class="btn_submit"/><br>
 <div id="info_note2" class="info_note"><b>Nombre de notes:</b> 2 - <b>Montant total:</b> 120,74€</div>
 <input type="button" value="Editer/Cloturer la note morron" onmouseover="showInfoNote('#info_note3', true);" onmouseout="showInfoNote('#info_note3', false);" class="btn_submit"/><br>
 <div id="info_note3" class="info_note"><b>Nombre de notes:</b> 5 - <b>Montant total:</b> 24,65€</div>
 <input type="button" value="Editer/Cloturer la note U kidding me?!" onmouseover="showInfoNote('#info_note4', true);" onmouseout="showInfoNote('#info_note4', false);" class="btn_submit"/><br>
-<div id="info_note4" class="info_note"><b>Nombre de notes:</b> 0 - <b>Montant total:</b> 0€</div>
+<div id="info_note4" class="info_note"><b>Nombre de notes:</b> 0 - <b>Montant total:</b> 0€</div>-->
 
 
 <a href="create_note.php"><input type="button" value="Créer une note" class="btn_submit"/></a><br>

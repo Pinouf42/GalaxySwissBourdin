@@ -80,7 +80,8 @@ function Accueil()
     <?php echo $lang['attention_texte2']; ?><br />
     <br />
     <img src="images/btn_oui.png" onclick="confirm_box(true);"/><img src="images/btn_non.png" onclick="confirm_box(false);" /></div>
-  <div id="lightbox_bg" onclick="close_add_ticket();"></div>
+<br/><center><a href="cloturer_note.php?note=<?php echo $_GET['note']; ?>"><input type="button" class="btn_submit" value="CLOTURER CETTE FACKING NOTE !"/></a></center>  
+<div id="lightbox_bg" onclick="close_add_ticket();"></div>
   <div id="lightbox_body">
       <div id="step1_1" class="step1_1"></div><div id="step2_0" class="step2_0"></div><div id="step2_1" class="step2_1"></div><div id="step3_0" class="step3_0"></div><div id="step3_1" class="step3_1"></div>
       <form method="post" id="saisie_justif" action="#">
@@ -127,7 +128,7 @@ function Accueil()
           <?php echo $lang['montant']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_montant" onblur="check_number(this)"/>
+          <input type="text" id="tbx_montant" name="tbx_montant" onblur="check_number(this)"/>
             </td>
         </tr>
         <tr>
@@ -135,7 +136,7 @@ function Accueil()
           <?php echo $lang['date_facture']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_date" onblur="check_date(this)" />
+          <input type="text" id="tbx_date" name="tbx_date" onblur="check_date(this)" />
             </td>
         </tr>
         <tr>
@@ -143,7 +144,7 @@ function Accueil()
           <?php echo $lang['lieu']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_lieu" />
+          <input type="text" id="tbx_lieu" name="tbx_lieu"/>
             </td>
         </tr>
         <tr>
@@ -151,7 +152,7 @@ function Accueil()
           <?php echo $lang['type_depense']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_type" onfocus="suggestion(this)" onblur="suggestion_out(this)" readonly="readonly"/>
+          <input type="text" id="tbx_type" name="tbx_type" onfocus="suggestion(this)" onblur="suggestion_out(this)" readonly="readonly"/>
             </td>
         </tr>
         <tr>
@@ -159,8 +160,9 @@ function Accueil()
           <?php echo $lang['commentaire']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_commentaire" />
+          <input type="text" id="tbx_commentaire" name="tbx_commentaire"/>
             </td>
+            <input type="hidden" value="<?php echo $_GET['note']; ?>" id="id_note" name="id_note"/>
         </tr>
       </table>
       <center>
@@ -192,6 +194,7 @@ function Accueil()
     </div>
   </div>
 </div>
+  
 <!-- FIN CONTENT BASE -->
 </body>
 </html>

@@ -25,7 +25,26 @@ else
 	{
 		if (@move_uploaded_file($_FILES['tbx_send']['tmp_name'], 'upload/'. $new_filename))
 		{
-			$data = $new_filename; //le retour sera le nom du fichier.
+                        $montant = stripslashes($_POST['tbx_montant']);
+                        $date = stripslashes($_POST['tbx_date']);
+                        $lieu = stripslashes($_POST['tbx_lieu']);
+                        $type = stripslashes($_POST['tbx_type']);
+                        $commentaire = stripslashes($_POST['tbx_commentaire']);
+                        $id_note = stripslashes($_POST['id_note']);
+
+                        mssql_connect($host, $username, $password);
+                        mssql_select_db($database);
+                        $query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES ('".$montant."', '".$lieu."', '".$commentaire."', '5' , '".$new_filename."', '".$id_note."')";
+                        if(mssql_query($query))
+                        {
+                            $data = $new_filename; //le retour sera le nom du fichier.
+                        }
+                        else
+                        {
+                            $data = mysql_error();
+                        }
+                        mssql_close();
+			
 		}
 		else //Si l’upload du fichier à échoué
 		{    
@@ -38,17 +57,7 @@ else
 	}
 }
 
-$montant = stripslashes($_POST['tbx_montant']);
-$date = stripslashes($_POST['tbx_date']);
-$lieu = stripslashes($_POST['tbx_lieu']);
-$type = stripslashes($_POST['tbx_type']);
-$commentaire = stripslashes($_POST['tbx_commentaire']);
 
-mssql_connect($host, $username, $password);
-mssql_select_db($database);
-//$query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES (".$montant.", '".$lieu."', '".$commentaire."', "..", '".$new_filename."', "..")";
-//mssql_query($query);
-mssql_close();
 
 echo $data; //on affiche finalement le résultat dans la page.
 ?>
