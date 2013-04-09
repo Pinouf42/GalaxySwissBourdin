@@ -92,16 +92,19 @@
         }
     </script>
     <body>
+        <div id="black" class="blackbackground"></div>
         <div id="confirm_box">
             <div id="confirm_box_header">
                 Validation de la note de frais
             </div>  
             <div id="content_confirm_box">
-                Êtes vous sur de vouloir #value_validation# la note de frais ?
+                <b>Êtes vous sur de vouloir #value_validation# la note de frais ?</b>
                 <br/><br/>
-                <b>Commentaire : (255 caractères maximun)</b><br/><br/>
-                <input type="text" maxlength="255"/>
-                <input id="buton" value="Valider" type="button" class="btn_submit" onclick="validation(0,this.value);"/><input id="buton" value="Refuser" type="button" class="btn_submit" onclick="validation(0,this.value);" />
+                <b>Commentaire : </b>(255 caractères maximun)<br/>
+                <input id="valid_commentaire" title="ok" type="text" maxlength="255" onmouseover="this.title=this.value"/><br/>
+                (<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>
+                <input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value);"/>
+                <input id="buton" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value);" />
              </div>
           </div>
         <div id="popup_info" class="success"></div>
@@ -121,11 +124,7 @@
                                 #content#
                                 <!-- Fin slider des justificatifs -->
                             </div>
-                            <div id="confirm_buton">
-                                <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value);" value="#btn_valider#"/>
-                                <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value);" value="#btn_refuser#"/>
-                                <input id="buton" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>
-                            </div>
+                            #confirm_buton_note#
                         </div>
 
                     </div>
