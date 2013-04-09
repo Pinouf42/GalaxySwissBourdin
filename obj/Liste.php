@@ -58,9 +58,10 @@ $Liste = '<div id="banner-fade" style="height: 180px; max-width: 280px; position
         <ul class="bjqs" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">';
 
             for ($i = 0; $i < $sql['nblig']; $i++) {
-
+                
 
             $lib_dep = $sql[$i]["lib_dep"];
+            $lib_lieu = $sql[$i]["lib_lieu"];
             $montant = $sql[$i]["montant"];
             $url_photo_justif = $sql[$i]["url_photo_justif"];
             $id_justif = $sql[$i]["id_justif"];
@@ -69,8 +70,8 @@ $Liste = '<div id="banner-fade" style="height: 180px; max-width: 280px; position
 
 
             $Liste .= '<li onclick="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">
-                <img style="height: 180px; width: 280px;" src = "http://www.whpinouf.com/gsb/upload/'.$url_photo_justif.'" title = "' . $lib_dep . ' : ' . $montant . '€ - ' . $url_photo_justif . '"/>
-                <p class="bjqs-caption">' . $lib_dep . ' : ' . $montant . '€ - ' . $url_photo_justif . '</p></li>';
+                <img style="height: 180px; width: 280px;" src = "http://www.whpinouf.com/gsb/upload/'.$url_photo_justif.'" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '"/>
+                <p class="bjqs-caption">' . $lib_dep . ' : ' . $montant . '€ -  Lieu : ' . $lieu . '</p></li>';
             }
 
             $Liste .= '</ul><!-- end Basic jQuery Slider --></div></div>';
@@ -89,8 +90,8 @@ $Liste = '<div id="banner-fade"><!-- start Basic Jquery Slider --><ul class="bjq
 
 
 
-        $Liste .= '<li>
-            <img onclick ="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\')" src = "../images/ticket.png" title = "' . $lib_dep . ' : ' . $montant . '€ - ' . $url_photo_justif . '" / ></li>';
+        $Liste .= '<li onclick ="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')">
+            <img  src = "http://www.whpinouf.com/gsb/upload/'.$url_photo_justif.'" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '" / ></li>';
         }
         $Liste .= "</ul><!-- end Basic jQuery Slider -->
     <script class=\"secret-source\">
@@ -117,7 +118,7 @@ public function Info_justif($id, $nom, $prenom, $date) {
 $Info;
 
 
-$sql = $this->DB->query('select  lib_reg, nom_pers, prenom_pers
+$sql = $this->DB->query('select lib_reg, nom_pers, prenom_pers
 from VISITEUR, REGION, SECTEUR,PERSONNEL,NOTE_FRAIS
 where VISITEUR.id_reg= REGION.id_reg
 and REGION.id_sect= SECTEUR.id_sect
@@ -133,7 +134,7 @@ $prenom_pers = $sql[0]['prenom_pers'];
 $lib_reg = utf8_encode($sql[0]["lib_reg"]);
 
 $Info = '<table id="justif_info">
-    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom . ' ' . $prenom . '</td></tr>
+    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom. ' ' . $prenom . '</td></tr>
     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>' . $nom_pers . ' ' . $prenom_pers . '</td></tr>
     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>' . $lib_reg . '</td></tr>
     <tr><td class="title_lbl_detail_justif"><b>#lbl_date_soumission#</b></td><td>' . $date . '</td></tr>
@@ -155,13 +156,14 @@ public function Detail_justif($id_note) {
 $Info;
 
 
-$sql = $this->DB->query('select  lib_reg, nom_pers, prenom_pers
+$sql = $this->DB->query('select lib_reg, nom_pers, prenom_pers
 from VISITEUR, REGION, SECTEUR,PERSONNEL,NOTE_FRAIS
 where VISITEUR.id_reg= REGION.id_reg
 and REGION.id_sect= SECTEUR.id_sect
 and SECTEUR.id_resp=PERSONNEL.id_pers
 and NOTE_FRAIS.id_pers=VISITEUR.id_vis
 and id_note=' . $id);
+
 
 $nom_pers = $sql[0]['nom_pers'];
 $prenom_pers = $sql[0]['prenom_pers'];
@@ -177,7 +179,7 @@ $Info = '<table id="justif">
 </table>';
 } else {
 $Info = '<table id="justif">
-    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom . ' ' . $prenom . '</td></tr>
+    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom ."aa".$id_pers. ' ' . $prenom . '</td></tr>
     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>A dévelloper function info_justif()</td></tr>
     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>A dévelloper function info_justif()</td></tr>
 </table>';

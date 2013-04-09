@@ -1,9 +1,3 @@
-function change_justif(Msens)
-{   
-    //0 à gauche
-    //1 à droite
-    alert("changement à"+Msens)
-}
    
 function show_popup()
 {
