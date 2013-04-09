@@ -175,7 +175,6 @@ function lance_upload()
 		}
 		else
 		{
-                    alert(retour);
 			$('#content_step3').html(upload_reussi);
 			Cufon.replace("div#content_step3");
                         $("#ticket_conteneur").animate({width:'+=185px'}, 500);
@@ -304,6 +303,7 @@ function showAdd(id_add, hide)
 
 function deleteTicket(id_ticket, id_supp, id_edit)
 {
+        $.get("delete_ticket.php", { justif: id_ticket} );
 	$(id_supp).stop().fadeOut(100);
 	$(id_edit).stop().fadeOut(100, function()
 	{
