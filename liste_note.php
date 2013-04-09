@@ -74,8 +74,17 @@ function Accueil()
         $executed_query = mssql_query($query);
         while($result = mssql_fetch_array($executed_query))
         {
+            $nb_Justif = 0;
+            $montant_Total = 0;
+            $query_justif = "SELECT * FROM JUSTIFICATIF WHERE id_note = ".$result['id_note'].""; 
+            $execute_query_justif = mssql_query($query_justif);
+            while($result_justif = mssql_fetch_array($execute_query_justif))
+            {
+                $nb_Justif++;
+                $montant_Total += $result_justif['montant'];
+            }
             echo "<a href=\"saisie_note.php?note=".$result[0]."\"><input type=\"button\" value=\"".$result[2]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"btn_submit\"/></a><br>";
-            echo "<div id=\"info_note".$result[0]."\" class=\"info_note\"><b>Nombre de justificatifs:</b> 13 - <b>Montant total:</b> 465,64€</div>";
+            echo "<div id=\"info_note".$result[0]."\" class=\"info_note\"><b>Nombre de justificatifs:</b> ".$nb_Justif." - <b>Montant total:</b> ".$montant_Total."€</div>";
             
         }
     ?>
