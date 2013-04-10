@@ -1,14 +1,25 @@
 <?
+include('include/language.php');
+include('include/menu.inc.php');
+include('include/config.php');
+mssql_connect($host, $username, $password);
+mssql_select_db($database);
 if(isset($_GET['note']))
 {
-
+    $id_note = stripslashes($_GET['note']);
+    $query = "SELECT COUNT(id_note) as Clos FROM NOTE_FRAIS WHERE id_note = ".$id_note." AND clos_note = 0";
+    $execute_query = mssql_query($query);
+    $result = mssql_fetch_array($execute_query);
+    if($result['Clos'] == "0")
+    {
+        header('Location: liste_note.php');
+    }
 }
 else
 {
    header('Location: liste_note.php');
 }
-include('include/language.php');
-include('include/menu.inc.php');
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -80,7 +91,8 @@ function Accueil()
     <?php echo $lang['attention_texte2']; ?><br />
     <br />
     <img src="images/btn_oui.png" onclick="confirm_box(true);"/><img src="images/btn_non.png" onclick="confirm_box(false);" /></div>
-  <div id="lightbox_bg" onclick="close_add_ticket();"></div>
+<br/><center><a href="include/cloturer_note.php?note=<?php echo $id_note; ?>"><input type="button" class="btn_submit" value="CLOTURER CETTE NOTE"/></a></center>  
+<div id="lightbox_bg" onclick="close_add_ticket();"></div>
   <div id="lightbox_body">
       <div id="step1_1" class="step1_1"></div><div id="step2_0" class="step2_0"></div><div id="step2_1" class="step2_1"></div><div id="step3_0" class="step3_0"></div><div id="step3_1" class="step3_1"></div>
       <form method="post" id="saisie_justif" action="#">
@@ -127,7 +139,7 @@ function Accueil()
           <?php echo $lang['montant']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_montant" onblur="check_number(this)"/>
+          <input type="text" id="tbx_montant" name="tbx_montant" onblur="check_number(this)"/>
             </td>
         </tr>
         <tr>
@@ -135,7 +147,7 @@ function Accueil()
           <?php echo $lang['date_facture']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_date" onblur="check_date(this)" />
+          <input type="text" id="tbx_date" name="tbx_date" onblur="check_date(this)" />
             </td>
         </tr>
         <tr>
@@ -143,7 +155,7 @@ function Accueil()
           <?php echo $lang['lieu']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_lieu" />
+          <input type="text" id="tbx_lieu" name="tbx_lieu"/>
             </td>
         </tr>
         <tr>
@@ -151,7 +163,7 @@ function Accueil()
           <?php echo $lang['type_depense']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_type" onfocus="suggestion(this)" onblur="suggestion_out(this)" readonly="readonly"/>
+          <input type="text" id="tbx_type" name="tbx_type" onfocus="suggestion(this)" onblur="suggestion_out(this)" readonly="readonly"/>
             </td>
         </tr>
         <tr>
@@ -159,8 +171,9 @@ function Accueil()
           <?php echo $lang['commentaire']; ?>
             </td>
             <td width="200" height="40" align="left" align="center" valign="middle">
-          <input type="text" id="tbx_commentaire" />
+          <input type="text" id="tbx_commentaire" name="tbx_commentaire"/>
             </td>
+            <input type="hidden" value="<?php echo $id_note; ?>" id="id_note" name="id_note"/>
         </tr>
       </table>
       <center>
@@ -178,10 +191,31 @@ function Accueil()
   </div>
 <div id="base">
   <div id="ticket_conteneur">
+      <?php
+        $query = "SELECT * FROM JUSTIFICATIF WHERE id_note = ".$id_note."";
+        $execute_query = mssql_query($query);
+        $i = 0;
+        while($result = mssql_fetch_array($execute_query))
+        {
+            $i++;
+            /*echo "<div id=\"t".$result['id_justif']."\" class=\"ticketItem_Note\" onmouseout=\"showMenu('#suppr".$result['id_justif']."', '#edit".$result['id_justif']."', true);\" onmouseover=\"showMenu('#suppr".$result['id_justif']."', '#edit".$result['id_justif']."', false);\">";
+            echo "<a href=\"#\"><div id=\"suppr".$result['id_justif']."\" class=\"ticket_supp\" onclick=\"deleteTicket('#t".$result['id_justif']."', '#suppr".$result['id_justif']."', '#edit".$result['id_justif']."');\"></div></a>";
+            echo "<a href=\"#\"><div id=\"edit".$result['id_justif']."\" class=\"ticket_edit\"></div></a>";
+            echo "</div>";*/
+            
+            
+            echo '<div id="t'.$result['id_justif'].'" class="ticketItem_Note" onmouseout="showMenu(\'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\', true);"';
+            echo 'onmouseover="showMenu(\'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\', false);"><img src="upload/'.$result['url_photo_justif'].'" width="155px" height="105px"/><div id="ticket_pic">';
+            echo '<a href="#"><div id="suppr'.$result['id_justif'].'" class="ticket_supp" onclick="deleteTicket(\'#t'.$result['id_justif'].'\', \'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\');"></div></a>';
+            echo '<a href="#"><div id="edit'.$result['id_justif'].'" class="ticket_edit"></div></a></div></div>';
+        }
+        $width = 185*$i;
+      ?>
+      <script>$("#ticket_conteneur").animate({width:'+=<?php echo $width; ?>px'}, 0);</script>
   <!-- EXEMPLE TICKET
-    <div id="t1" class="ticketItem_Note" onmouseout="showMenu('#suppr1', '#edit1', true);" onmouseover="showMenu('#suppr1', '#edit1', false);">
-      <a href="#"><div id="suppr1" class="ticket_supp" onclick="deleteTicket('#t1', '#suppr1', '#edit1');"></div></a>
-      <a href="#"><div id="edit1" class="ticket_edit"></div></a>
+    <div id=\"t1\" class=\"ticketItem_Note\" onmouseout=\"showMenu('#suppr1', '#edit1', true);\" onmouseover=\"showMenu('#suppr1', '#edit1', false);\">
+      <a href=\"#\"><div id=\"suppr1\" class=\"ticket_supp\" onclick=\"deleteTicket('#t1', '#suppr1', '#edit1');\"></div></a>
+      <a href=\"#\"><div id=\"edit1\" class=\"ticket_edit\"></div></a>
     </div>
     <div id="t2" class="ticketItem_Note" onmouseout="showMenu('#suppr2', '#edit2', true);" onmouseover="showMenu('#suppr2', '#edit2', false);">
       <a href="#"><div id="suppr2" class="ticket_supp" onclick="deleteTicket('#t2', '#suppr2', '#edit2');"></div></a>
@@ -192,6 +226,8 @@ function Accueil()
     </div>
   </div>
 </div>
+  
 <!-- FIN CONTENT BASE -->
 </body>
 </html>
+<?php mssql_close(); ?>

@@ -99,6 +99,8 @@ function perform_step()
 {
 	if(step == 1)
 	{
+            if($("#tbx_send").val() != "")
+            {
 		step = 2;
 		$("#content_step1").fadeOut(200, function()
 		{
@@ -108,6 +110,11 @@ function perform_step()
 		{
 			$("#step2_1").fadeIn(200);
 		});
+            }
+            else
+            {
+                alert('Veuillez sélectionner la photo de votre ticket.')
+            }
 	}
 	else
 	{
@@ -303,6 +310,11 @@ function showAdd(id_add, hide)
 
 function deleteTicket(id_ticket, id_supp, id_edit)
 {
+        $.ajax({
+            type: "POST",
+            url: "delete_ticket.php",
+            data: "justif="+id_ticket.replace('#t', '')
+        });
 	$(id_supp).stop().fadeOut(100);
 	$(id_edit).stop().fadeOut(100, function()
 	{
