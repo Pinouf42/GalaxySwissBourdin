@@ -449,6 +449,8 @@ a:hover {
 	top:0%;
 	z-index:90;
 	float:left;
+        height:105px;
+        width:155px;
 }
 
 #lightbox_body
