@@ -399,6 +399,16 @@ a:hover {
 	opacity:1;
 }
 
+.ticketItem_Note img
+{
+        position:relative;
+	top:0%;
+	z-index:90;
+	float:left;
+        height:105px;
+        width:155px;
+}
+
 .ticket_supp
 {
 	background:url(../images/ticket_suppr.png) no-repeat bottom center;
