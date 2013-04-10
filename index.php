@@ -82,7 +82,7 @@ function tbx_PasswordEmpty(id)
 <div id="accueil"><?php echo $lang['texte_accueil1']; ?></div>
 <div id="base">
 <div id="loginbox">
-<form method="post" action="">
+<form method="post" action="verif_login.php">
 <div id="tbx_login"><input type="text" id="tbx_login" name="tbx_login" value="Login" onfocus="tbx_LoginEmpty(this)" onblur="tbx_LoginEmpty(this)" /></div>
 <div id="tbx_password"><input type="password" id="tbx_password" name="tbx_password" value="password1234" onfocus="tbx_PasswordEmpty(this)" onblur="tbx_PasswordEmpty(this)"/></div>
 <div id="sep"></div>
