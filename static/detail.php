@@ -12,23 +12,23 @@
         function hide_ticket()
         {
             Masession=0;
-                $(".hidden").fadeOut(250,function(){
-                    $(".hide").animate({
-                        'height':'0px'
-                    },500); 
-                    $(".hide").fadeOut(250);                                       
-                    var n = "<tbody><tr><td class=\"title_lbl_detail_justif\"><b>#lbl_num_justif#</b></td><td>#id_justif#</td></tr>"
-                    n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_type_depense#</b></td><td>#lib_dep#</td></tr>"
-                    n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_montant#</b></td><td>#montant# €</td></tr> "                                                
-                    n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_lieu#</b></td><td>#lieu#</td></tr>"                
-                    n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
-                    document.getElementById("justif").innerHTML=n;
+            $(".hidden").fadeOut(250,function(){
+                $(".hide").animate({
+                    'height':'0px'
+                },500); 
+                $(".hide").fadeOut(250);                                       
+                var n = "<tbody><tr><td class=\"title_lbl_detail_justif\"><b>#lbl_num_justif#</b></td><td>#id_justif#</td></tr>"
+                n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_type_depense#</b></td><td>#lib_dep#</td></tr>"
+                n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_montant#</b></td><td>#montant# €</td></tr> "                                                
+                n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_lieu#</b></td><td>#lieu#</td></tr>"                
+                n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
+                document.getElementById("justif").innerHTML=n;
                     
-                    var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
-                    document.getElementById("show_img_justif").src=n;
+                var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
+                document.getElementById("show_img_justif").src=n;
                     
                    
-                });      
+            });      
         }
         
         function show_ticket(id_justif,lib_dep,montant,lieu,commentaire,url_photo)
@@ -92,6 +92,21 @@
         }
     </script>
     <body>
+        <div id="black" class="blackbackground"></div>
+        <div id="confirm_box">
+            <div id="confirm_box_header">
+                Validation de la note de frais
+            </div>  
+            <div id="content_confirm_box">
+                <b>Êtes vous sur de vouloir #value_validation# la note de frais ?</b>
+                <br/><br/>
+                <b>Commentaire : </b>(255 caractères maximun)<br/>
+                <input id="valid_commentaire" title="ok" type="text" maxlength="255" onmouseover="this.title=this.value"/><br/>
+                (<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>
+                <input id="buton_valider" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value);"/>
+                <input id="buton_refuser" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value);" />
+             </div>
+          </div>
         <div id="popup_info" class="success"></div>
         <div id="secondary">
             <div id="content_slide">
@@ -109,11 +124,7 @@
                                 #content#
                                 <!-- Fin slider des justificatifs -->
                             </div>
-                            <div id="confirm_buton">
-                                <input id="buton" class="btn_submit" type="button" onclick="if(confirm('Voulez vous valider ce justificatif ?')){};" value="#btn_valider#"/>
-                                <input id="buton" class="btn_submit" type="button" onclick="if(confirm('Voulez vous refuser ce justificatif ?')){};" value="#btn_refuser#"/>
-                                <input id="buton" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>
-                            </div>
+                            #confirm_buton_note#
                         </div>
 
                     </div>

@@ -1,12 +1,17 @@
 <?php
 include 'include/language.php';
 include 'include/menu.inc.php';
+include 'include/config.php';
+session_start();
+$_SESSION['mode']=4;
+$_SESSION['id_pers']=4;
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="css/style_justif.css">
+        <link rel="stylesheet" href="css/historique.css">
             <link rel="stylesheet" href="css/style.css">
                 <title>GSB - Gestion Frais Deplacement</title>
                 <script src="js/jquery.min.js"></script>
@@ -91,7 +96,7 @@ include 'include/menu.inc.php';
                         </div>
                     </div> 
                     
-                   <table id="date_picker">
+                   <!--<table id="date_picker">
                         <tr>
                             <td>
                                 <div id="date_debut">Date début :<br>
@@ -107,350 +112,78 @@ include 'include/menu.inc.php';
                                 </div>
                             </td>                                
                         </tr>
-                    </table> 
-                    <div id="base">
-                        <div id="tab_justificatif">
-                            <table><caption>Liste de vos justificatifs</caption><thead><tr><th scope="col">N°</th><th scope="col">Photo/Facture</th><th scope="col">Lieu</th><th scope="col">Date facture</th><th scope="col">Date soumission</th><th scope="col">Montant</th><th scope="col">Type dépense</th><th scope="col">Commentaire</th></tr></thead><tfoot><tr><th scope="row">G-S-B</th><td colspan="6"></td><th scope="row">retour</th></tr></tfoot><tbody>
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr> 
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>   
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
-                                    <tr class="tr_justificatif">
-                                        <td>1</td>
-                                        <td><a href="#">Lien facture</a></td>
-                                        <td>Marseille</td>
-                                        <td>19/12/2010</td>                     
-                                        <td>21/12/2010</td>
-                                        <td>2050€</td>
-                                        <td>essence</td>
-                                        <td>Essence à Gean Casino</td>
-                                    </tr>  
+                    </table> -->
+                    <div id="content">
+                        <div id="tab_historique">
+                            <table><caption></caption><thead>
+                                    <tr><th scope="col"><input type='text'></input></th><th scope="col"><input type='text'></input></th><th scope="col"><input type='text'></input></th><th scope="col"><input type='text'></input></th></tr>
+                                    <tr><th scope="col">N°</th><th scope="col">Date validation</th><th scope="col">Etat</th><th scope="col">Commentaire</th></tr>
+                                    </thead>
+                                    <tfoot><tr><th scope="row">G-S-B</th><td colspan="2"></td><th scope="row">retour</th></tr></tfoot><tbody>
+                                    
+                                    
+                                    
+                                    
+                                    <?php
+                                   
+                                        mssql_connect($host, $username, $password);
+                                        mssql_select_db($database);
+//                                        $sql = "SELECT COLUMN_NAME
+//                                                    FROM INFORMATION_SCHEMA.COLUMNS
+//                                                    WHERE TABLE_NAME='note_frais'";
+//                                        $result_query = mssql_query($sql);
+//                                        while ($data = mssql_fetch_array($result_query)) { 
+//                                        print_r($data);}die();
+                                        
+                                        // 1: visiteur
+                                        // 2: delegué
+                                        // 3: responsable
+                                        // 4: admin
+                                        
+                                        
+                                        switch ($_SESSION['mode'])
+                                        {
+                                            case '1': $sql = "select * from validation v, note_frais nf
+                                                            where v.id_note = nf.id_note
+                                                            and v.id_pers = ".$_SESSION['id_pers'];
+                                                break;
+                                            case '2': ;
+                                                break;
+                                            case '3': ;
+                                                break;
+                                            case '4':$sql = "select * from validation v, note_frais nf
+                                                            where v.id_note = nf.id_note";
+                                                break;
+                                            default : echo 'erreur';
+                                                break;
+                                        }
+                                        
+//                                        $sql = "INSERT INTO validation
+//                                            values('38','kjdfshglukhlh','4','1','09/04/2013')";
+                                        
+                                        $result_query = mssql_query($sql);
+                                        
+                                        while ($data = mssql_fetch_array($result_query)) { 
+                                            // on affiche les résultats
+                                            print_r($data);
+                                            if ($data['etat_validation'] == 0)
+                                                $etat_valid = "Rejeté";
+                                            else
+                                                $etat_valid = "Validé";
+                                            
+                                            echo '<tr class="tr_historique">
+                                                <td>'.$data['id_note'].'</td>
+                                                
+                                                <td>'.$data['date_validation'].'</td>
+                                                
+                                                <td class=\'etat_valid'.$data['etat_validation'].'\'>'.$etat_valid.'</td>
+                                                <td>'.$data['commentaire_validation'].'</td></tr>';
+                                            
+                                        }  
+                                        mssql_close();
+                                    ?>
+
+                                    
                             </table>
                         </div>
                     </div>

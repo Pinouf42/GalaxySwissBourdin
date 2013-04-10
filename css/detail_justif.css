@@ -21,6 +21,7 @@ body{
     -webkit-box-shadow:0px 0px 4px #000;
     box-shadow:0px 0px 8px #000;
     border-right: 2px solid #666;
+    border-left: 2px solid #666;
     border-bottom: 2px solid #666;
     border-top: 2px solid #666;  
     float: left;   
@@ -43,7 +44,7 @@ body{
     left: 602px;
     cursor: pointer;
     margin-top: -13px;
-    z-index: 10000;
+    z-index: 50;
 }
 
 #header_dialog_form {    
@@ -74,8 +75,7 @@ body{
 
 #show_img_justif{
     max-height: 100px;
-    margin: 10px 15px;
-    border-left: 1px solid #AAA;
+    margin: 10px 15px;    
     box-shadow: 0 0 4px 2px #666;
     max-width: 300px;
     float: right;
@@ -107,12 +107,9 @@ body{
     margin-bottom: 5px;
 }
 
-#buton{
-    margin-left: 10px;
-    float: left;
+.btn_submit{
     outline: 0;
     padding: 5px 12px;
-    display: block;
     color: #9fa8b0;
     font-weight: bold;
     text-shadow: 1px 1px #1f272b;
@@ -127,12 +124,15 @@ body{
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
     -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
     -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
+    font-family: Arial, Verdana, Sans-serif;
     transition: all 0.5s;
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
+    margin-left: 10px;
+    margin-bottom:10px;
 }
 
-#buton:hover{
+.btn_submit:hover{
     color: #fff;
     background: #4C5A64; /* old browsers */
     background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%); /* firefox */
@@ -261,31 +261,92 @@ p.bjqs-caption{
     display: none;
 }
 .info, .success, .warning, .error, .validation {
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
 }
 .info {
-color: #00529B;
-background-color: #BDE5F8;
-background-image: url('../images/info.png');
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../images/info.png');
 }
 .success {
-color: #4F8A10;
-background-color: #DFF2BF;
-background-image:url('../images/success.png');
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
 }
 .warning {
-color: #9F6000;
-background-color: #FEEFB3;
-background-image: url('../images/warning.png');
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
 }
 .error {
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('../images/error.png');
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
 }
 
 /* Fin css info popup */
+
+
+/* Début Popup validation */
+
+#content_confirm_box{
+    margin:10px 0px 10px 0px  ;
+    height: 100%;
+}
+
+#content_confirm_box input text{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#confirm_box {
+    width: 350px;
+    height: 180px;
+    background-color: #FFF;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+    z-index: 1000;
+    box-shadow: 0px 1px 10px #222;
+    -moz-box-shadow: 0px 1px 10px #222;
+    -webkit-box-shadow: 0px 1px 10px #222;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+}
+#confirm_box_header {
+    width: 360px;
+    height: 10px;
+    padding: 15px;
+    text-align: center;
+    background: #DDD;
+    font-size: 15px;
+    border-bottom: 1px solid #AAA;
+    margin-top: -50px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+#confirm_box img:hover {
+    cursor: pointer;
+}
+
+.blackbackground {
+	position: fixed;
+	z-index: 999;
+	background: #000;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+/* Fin Popu validation */

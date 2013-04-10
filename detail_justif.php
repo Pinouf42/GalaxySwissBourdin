@@ -16,11 +16,19 @@ $Liste = new Liste();
 $Page = new Page('static/detail.php');
 
 $Liste_justificatif = $Liste->Liste_justificatif($_GET['id']);
-$Info_justif = $Liste->Info_justif($_GET['id'],$_GET['nom'],$_GET['prenom'],$_GET['date']);
+$Info_justif = $Liste->Info_note_frais($_GET['id'],$_GET['nom'],$_GET['prenom'],$_GET['date']);
+$confirm_buton_justif = $Liste->validation_confirm_box($_GET['id']);
 
+/*
+echo $Info_justif;
+echo "-- -- -- -- -- --";
+echo $confirm_buton_justif;
+
+*/
 $Page->addBalise('titre', 'Principale');
 $Page->addBalise('content', $Liste_justificatif);
 $Page->addBalise('info_justif', $Info_justif);
+$Page->addBalise('confirm_buton_note', $confirm_buton_justif);
 
 
 /* Début Traduction */

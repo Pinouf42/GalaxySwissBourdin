@@ -1,0 +1,35 @@
+/* 
+    Document   : historique
+    Created on : 9 avr. 2013, 09:46:57
+    Author     : formation
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#tab_historique table{
+    border: 1px solid #B6B6B6;
+    border-collapse: collapse;
+    margin: 30px;
+    padding: 0;
+    width: 95%;
+}
+#tab_historique tr {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    height: 30px;
+    padding: 2px;
+    text-align: center;
+}
+.etat_valid1{
+    color: green;
+    font-weight: bold;
+}
+.etat_valid0{
+    color: red;
+    font-weight: bold;
+}
