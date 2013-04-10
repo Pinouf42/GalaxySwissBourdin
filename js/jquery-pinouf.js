@@ -263,12 +263,12 @@ function showMenu(id_supp, id_edit, hide)
 	if(hide == false)
 	{
 		$(id_supp).stop().animate({height:'32px'}, 500);
-		$(id_edit).stop().animate({height:'32px', marginTop:'45px'}, 500);
+		$(id_edit).stop().animate({height:'32px', marginTop:'-60px'}, 500);
 	}
 	else
 	{
 		$(id_supp).stop().animate({height:'0px'}, 500);
-		$(id_edit).stop().animate({height:'0px', marginTop:'105px'}, 500);
+		$(id_edit).stop().animate({height:'0px', marginTop:'0px'}, 500);
 	}
 }
 
