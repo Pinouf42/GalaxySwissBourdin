@@ -52,7 +52,11 @@ var upload_erreur = "<?php echo $lang['erreur_envoi_justif']; ?>";
 var champs_non_remplis = "<?php echo $lang['champs_non_remplis']; ?>";
 function Accueil()
 {
-	$("#base").fadeIn(500);
+        $("#base_loading").fadeOut(500, function()
+        {
+            $("#base").fadeIn(500);
+        });
+	
 }
 </script>
 </head>
@@ -189,7 +193,7 @@ function Accueil()
           <img src="images/loading.gif" />
     </div>
   </div>
-<div id="loading"><center><img src="images/loading.gif"/></center></div>
+<div id="base_loading"><center><img src="images/loading.gif"/></center></div>
 <div id="base">
   <div id="ticket_conteneur">
       <?php

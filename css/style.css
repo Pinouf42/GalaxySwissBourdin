@@ -246,6 +246,13 @@ a:hover {
 	display: none;
 	margin-bottom: 20px;
 }
+
+#base_loading {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
 .justif_details {
 	margin-left: auto;
 	margin-right: auto;
