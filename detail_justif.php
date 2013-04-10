@@ -13,7 +13,7 @@ $Liste = new Liste();
 
 // Test du formulaire
 
-$Page = new Page('static/detail.php');
+$Page = new Page('html/detail.php');
 
 $Liste_justificatif = $Liste->Liste_justificatif($_GET['id']);
 $Info_justif = $Liste->Info_note_frais($_GET['id'],$_GET['nom'],$_GET['prenom'],$_GET['date']);

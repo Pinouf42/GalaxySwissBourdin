@@ -24,7 +24,7 @@ $Table = new Table();
 
 // Test du formulaire
 
-$Page = new Page('static/table.php');
+$Page = new Page('html/table.php');
 
 $table_note = $Table->Table_note();
 
