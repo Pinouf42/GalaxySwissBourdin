@@ -189,6 +189,7 @@ function Accueil()
           <img src="images/loading.gif" />
     </div>
   </div>
+<div id="loading"><center><img src="images/loading.gif"/></center></div>
 <div id="base">
   <div id="ticket_conteneur">
       <?php
