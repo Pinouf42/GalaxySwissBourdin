@@ -53,9 +53,9 @@ function validation(choix,value_valid,id_note,id_pers)
     {      
         var str= document.getElementById("content_confirm_box").innerHTML;
         var n= str.replace("#value_validation#",value_valid.toLowerCase())
-                  .replace("#validation_value#",value_valid.toLowerCase())
-                  .replace("#c_id_note#",id_note)
-                  .replace("#c_id_pers#",id_pers);
+        .replace("#validation_value#",value_valid.toLowerCase())
+        .replace("#c_id_note#",id_note)
+        .replace("#c_id_pers#",id_pers);
         document.getElementById("content_confirm_box").innerHTML=n;
         
         $("#black").fadeIn(500, function()
@@ -87,7 +87,7 @@ function validation(choix,value_valid,id_note,id_pers)
             else if(value_valid.toLowerCase()=="refuser")
             {
                 etat = 0; 
-            }
+            }            
             var commentaire = document.getElementById("valid_commentaire").value;             
             validation_requete_mssql(id_note,id_pers,commentaire, etat);
         }              
@@ -111,19 +111,35 @@ function clear_confir_box()
 }
 
 function validation_requete_mssql(id_note,id_pers,commentaire,etat)
-{
+{        
+    var Chaine_etat;
     xhr=new XMLHttpRequest();
     xhr.open('POST', 'include/Obj_luc.php'); 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send('Q=QnI&id_note="'+id_note+'"&id_pers="'+id_pers+'"&comm="'+commentaire+'"&etat="'+etat+'');  
-    alert('Q=QnI&id_note="'+id_note+'"&id_pers="'+id_pers+'"&comm="'+commentaire+'"&etat="'+etat+'');die();
+    xhr.send('Q=QnI&id_note='+id_note+'&id_pers='+id_pers+'&comm='+commentaire+'&etat='+etat+'');  
     xhr.onreadystatechange = function() {                            
-        if(xhr.readyState == 4) {                                 
-            //alert(xhr.responseText); 
-            
-            //MANQUE ID_PERS et ID_NOTE à faire passer dans la fonction validation_requete_mssql
-            
+        if(xhr.readyState == 4) {  
+            alert(xhr.responseText);
+            var Tab_rep_valid =JSON.parse(xhr.responseText); 
+            alert(Tab_rep_valid);
+            if(Tab_rep_valid.tab.nblig!=0)
+            {   
+                if(etat==1)
+                {
+                     Chaine_etat="validée";
+                }
+                else
+                {
+                     Chaine_etat="refusée";       
+                }
+                popup_show("success","La note de frais à bien été "+Chaine_etat); 
+            }
+            else if(Tab_rep_valid.tab.nblig==0)
+            {
+                popup_show("error","Erreur lors de l'insertion en base de donnée. Veuillez recommencer !");
+            }            
         } 
+       setTimeout(function(){popup_hide()},5000);
     }
     
 }

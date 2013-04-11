@@ -105,7 +105,7 @@
                 <input id="c_id_note" type="hidden" value="#c_id_note#"/>
                 <input id="valid_commentaire" title="ok" type="text" maxlength="255" onmouseover="this.title=this.value"/><br/>
                 (<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>
-                <input id="buton_valider" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);"/>
+                <input id="buton_valider" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);"/>
                 <input id="buton_refuser" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);" />
              </div>
           </div>

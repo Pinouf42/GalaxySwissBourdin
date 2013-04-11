@@ -1,6 +1,5 @@
 <?php
 
-require_once 'config.php';
 require_once '../obj/DB.php';
 
 if (!isset($_POST['Q'])) {
@@ -13,17 +12,23 @@ if (!isset($_POST['Q'])) {
 }
 
 function query_bdd() {
-    //$DB = new DB();
     
+    $DB = new DB();
     $commentaire = $_POST['comm'];
     $etat = $_POST['etat'];
     $id_pers = $_POST['id_pers'];
     $id_note = $_POST ['id_note'];
+    $date_validation = date("m/d/Y");
     
-    $chaine = $commentaire." -- ".$etat." -- ".$id_pers." -- ".$id_note;
+    //$chaine = $commentaire." -- ".$etat." -- ".$id_pers." -- ".$id_note." -- ".$date_validation;
+    //$sql ="INSERT INTO VALIDATION values ('".$id_note."','".$commentaire."','".$id_pers."','".$etat."','".$date_validation."')";
+    $sql = "select * from validation";
+    $chaine =$DB->query($sql);
+    
+    
     
     echo $chaine;
-    //$DB->query($query);
+    
 }
 
 ?>
