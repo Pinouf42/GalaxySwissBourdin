@@ -1,5 +1,5 @@
 <?php
-
+require_once 'DB.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -12,6 +12,8 @@
  */
 class Page {
     
+    public $DB;
+    
     /**
      * Contenu du fichier statique
      * @var string
@@ -20,6 +22,13 @@ class Page {
 
 
     public function __construct($filename) {
+        $this->DB = new DB();
+//        echo "salut";
+//        $sql = "SELECT * from note_frais";
+//        $data = $this->DB->query($sql);
+//                          echo "salut2";
+//                          
+//                                        print_r($data);die();
         $this->content = file_get_contents($filename);
     }
     
