@@ -245,6 +245,8 @@ a:hover {
 	margin-top: 40px;
 	display: none;
 	margin-bottom: 20px;
+        overflow:auto;
+        overflow-y:hidden;
 }
 
 #base_loading {
