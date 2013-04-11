@@ -161,7 +161,7 @@ class Liste {
         $Info = '<div id="confirm_buton">
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0][id_pers].');" value="#btn_valider#"/>
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0][id_pers].');" value="#btn_refuser#"/>
-                <input id="buton" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>
+                <input id="buton_annuler" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>
                 </div>';
         
         return $Info;
