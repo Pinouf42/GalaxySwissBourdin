@@ -73,7 +73,9 @@ function validation(choix,value_valid,id_note,id_pers)
         {
             if(confirm("Il n'y a pas de commentaire êtes vous sur de vouloir " + value_valid + " ?")==true)
             {
-                clear_confir_box();
+                
+                var commentaire = document.getElementById("valid_commentaire").value;             
+                validation_requete_mssql(id_note,id_pers,commentaire, etat);
             }
             
         }
@@ -90,8 +92,8 @@ function validation(choix,value_valid,id_note,id_pers)
             }            
             var commentaire = document.getElementById("valid_commentaire").value;             
             validation_requete_mssql(id_note,id_pers,commentaire, etat);
-        }              
-        
+        }      
+        clear_confir_box();        
     }
 }
 
@@ -118,19 +120,17 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send('Q=QnI&id_note='+id_note+'&id_pers='+id_pers+'&comm='+commentaire+'&etat='+etat+'');  
     xhr.onreadystatechange = function() {                            
-        if(xhr.readyState == 4) {  
-            alert(xhr.responseText);
-            var Tab_rep_valid =JSON.parse(xhr.responseText); 
-            alert(Tab_rep_valid);
+        if(xhr.readyState == 4) {
+            var Tab_rep_valid =JSON.parse(xhr.responseText);            
             if(Tab_rep_valid.tab.nblig!=0)
             {   
                 if(etat==1)
                 {
-                     Chaine_etat="validée";
+                    Chaine_etat="validée";
                 }
                 else
                 {
-                     Chaine_etat="refusée";       
+                    Chaine_etat="refusée";       
                 }
                 popup_show("success","La note de frais à bien été "+Chaine_etat); 
             }
@@ -139,7 +139,9 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
                 popup_show("error","Erreur lors de l'insertion en base de donnée. Veuillez recommencer !");
             }            
         } 
-       setTimeout(function(){popup_hide()},5000);
+        setTimeout(function(){
+            popup_hide()
+        },5000);
     }
     
 }

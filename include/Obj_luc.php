@@ -14,6 +14,8 @@ if (!isset($_POST['Q'])) {
 function query_bdd() {
     
     $DB = new DB();
+    
+        
     $commentaire = $_POST['comm'];
     $etat = $_POST['etat'];
     $id_pers = $_POST['id_pers'];
@@ -21,13 +23,13 @@ function query_bdd() {
     $date_validation = date("m/d/Y");
     
     //$chaine = $commentaire." -- ".$etat." -- ".$id_pers." -- ".$id_note." -- ".$date_validation;
-    //$sql ="INSERT INTO VALIDATION values ('".$id_note."','".$commentaire."','".$id_pers."','".$etat."','".$date_validation."')";
-    $sql = "select * from validation";
+    $sql ="INSERT INTO VALIDATION values ('".$id_note."','".$commentaire."','".$id_pers."','".$etat."','".$date_validation."')";
+    //$sql = "select * from validation";
     $chaine =$DB->query($sql);
     
     
     
-    echo $chaine;
+    echo json_encode($chaine);
     
 }
 
