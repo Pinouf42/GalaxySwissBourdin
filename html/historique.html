@@ -1,12 +1,4 @@
-<?php
-include 'include/language.php';
-include 'include/menu.inc.php';
-include 'include/config.php';
-session_start();
-$_SESSION['mode']=4;
-$_SESSION['id_pers']=4;
 
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -76,7 +68,7 @@ $_SESSION['id_pers']=4;
                     <div id="selection_pays">
                         <div id="bandeau_pays"></div>
                         <div id="menu_2_items">
-                        <?php
+                        <!--<?php
                         
                         $count = count($menu);
                         for($i = 0; $i < $count; $i++)
@@ -84,7 +76,8 @@ $_SESSION['id_pers']=4;
                             $item = explode("|", $menu[$i]);
                             echo '<a href="'.$item[1].'"><div id="menu_item">'.$item[0].'</div></a>';
                         }
-                        ?>
+                        ?>-->
+                        #MENU#
                         </div>
                         <div id="logged">
                             <table width="250" border="0">

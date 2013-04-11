@@ -1,6 +1,5 @@
 <?php
 
-require_once 'DB.php';
 
 /*
  * To change this template, choose Tools | Templates
@@ -19,14 +18,14 @@ class Table {
      * @var int
      */
     private $tabulation;
-    private $DB;
+    //private $DB;
 
     /**
      * Constructeur 
      */
     public function __construct() {
         $this->tabulation = 0;
-        $this->DB = new DB();        
+        //$this->DB = new DB();
     }
 
     /**
@@ -84,6 +83,50 @@ class Table {
 
 
         return $table;
+    }
+    
+    
+    /******
+     * 
+     *  Ajout de laurent
+     * 
+     ******/
+    
+    public function tableDeb($attribut='', $caption='')
+    {
+        return '<table '.$attribut.'><caption>'.$caption.'</caption>';
+    }
+    
+    public function tableFin()
+    {
+        return '</table>';
+    }
+    
+    /**
+     *
+     * @param type $tab tableau de valeur attribut/valeur 
+     */
+    public function tableCreeLigneTH($tab, $classTR)
+    {
+        $return= '<tr>';
+        foreach ($tab as $line)
+        {
+            $return .='<th '.$line['attribut'].'>'.$line['valeur'].'</th>';
+        }
+        return $return.'</tr>';
+    }
+    /**
+     *
+     * @param type $tab tableau de valeur attribut/valeur 
+     */
+    public function tableCreeLigneTD($tab)
+    {
+        $return= '<tr>';
+        foreach ($tab as $line)
+        {
+            $return .='<td '.$line['attribut'].'>'.$line['valeur'].'</td>';
+        }
+        return $return.'</tr>';
     }
 
 }
