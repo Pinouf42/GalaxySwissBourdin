@@ -194,7 +194,7 @@ function Accueil()
     </div>
   </div>
 <div id="base_loading"><center><img src="images/loading.gif"/></center></div>
-<div id="base">
+<div id="base" class="base_note">
   <div id="ticket_conteneur">
       <?php
         $query = "SELECT * FROM JUSTIFICATIF WHERE id_note = ".$id_note."";

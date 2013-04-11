@@ -247,7 +247,11 @@ a:hover {
 	margin-bottom: 20px;
         overflow:auto;
         overflow-y:hidden;
-        height:130px;
+}
+
+.base_note
+{
+    height:130px;
 }
 
 #base_loading {
