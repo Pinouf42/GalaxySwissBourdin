@@ -19,14 +19,14 @@ class Liste {
      * @var int
      */
     private $tabulation;
-    private $DB;
+    //private $DB;
 
     /**
      * Constructeur 
      */
     public function __construct() {
         $this->tabulation = 0;
-        $this->DB = new DB();
+        //$this->DB = new DB();
     }
 
     /**
@@ -41,14 +41,8 @@ class Liste {
      * @param string $name Nom du champ
      * @return string code HTML
      */
-    public function Liste_justificatif($id_note) {
+    public function Liste_justificatif($id_note,$sql) {
         $this->tabulation++;
-
-        $sql = $this->DB->query("select id_note, montant, lib_dep ,url_photo_justif, id_justif, lieu, commentaire
-                                 from JUSTIFICATIF, TYPE_DEPENSE
-                                 where JUSTIFICATIF.id_dep=TYPE_DEPENSE.id_dep
-                                 and id_note=$id_note");
-
 
         if ($sql['nblig'] == 1) {
 
@@ -115,18 +109,8 @@ class Liste {
         return $Liste;
     }
 
-    public function Info_note_frais($id, $nom, $prenom, $date) {
+    public function Info_note_frais($id, $nom, $prenom, $date, $sql) {
         $Info;
-
-
-        $sql = $this->DB->query('select lib_reg, nom_pers, prenom_pers
-                                from VISITEUR, REGION, SECTEUR,PERSONNEL,NOTE_FRAIS
-                                where VISITEUR.id_reg= REGION.id_reg
-                                and REGION.id_sect= SECTEUR.id_sect
-                                and SECTEUR.id_resp=PERSONNEL.id_pers
-                                and NOTE_FRAIS.id_pers=VISITEUR.id_vis
-                                and id_note=' . $id);
-
 
         if (isset($sql[0])) {
 
@@ -153,10 +137,9 @@ class Liste {
         return $Info;
     }
 
-    public function validation_confirm_box($id) {
-        $Info;
+    public function validation_confirm_box($id, $sql) {
+        $Info;      
         
-        $sql = $this->DB->query('select id_pers from NOTE_FRAIS where id_note='.$id);
 
         $Info = '<div id="confirm_buton">                
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0][id_pers].');" value="#btn_valider#"/>

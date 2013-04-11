@@ -2,11 +2,14 @@
 
 session_start();
 
+
+
 //inclusion de l'objet
 require_once 'obj/Table.php';
 require_once 'obj/Page.php';
 require_once 'include/menu.inc.php';
 require_once 'include/language.php';
+
 
 
 $Mchaine="";
@@ -26,7 +29,13 @@ $Table = new Table();
 
 $Page = new Page('html/table.php');
 
-$table_note = $Table->Table_note();
+$sql = $Page->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_note
+                            from note_frais, PERSONNEL
+                            where note_frais.id_pers=personnel.id_pers
+                            and id_note not in(select id_note from validation)
+                            and clos_note=1");
+
+$table_note = $Table->Table_note($sql);
 
 $Page->addBalise('titre', 'Principale');
 $Page->addBalise('content', $table_note);

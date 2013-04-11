@@ -19,7 +19,7 @@ class Table {
      */
     private $tabulation;
     //private $DB;
-
+    
     /**
      * Constructeur 
      */
@@ -40,16 +40,8 @@ class Table {
      * @param string $name Nom du champ
      * @return string code HTML
      */
-    public function Table_note() {
+    public function Table_note($sql) {
         $this->tabulation++;
-
-        $sql = $this->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_note
-                            from note_frais, PERSONNEL
-                            where note_frais.id_pers=personnel.id_pers
-                            and id_note not in(select id_note from validation)
-                            and clos_note=1");
-
-
 
         // Préparation du tableau des notes de frais
         $table = '<table id="table_note">
@@ -71,12 +63,12 @@ class Table {
             $id_note = $sql[$i]["id_note"];
 
             $table .= '<tr class="tr_justificatif">
-						<td>' . $id_note . '</td>
-						<td>' . $prenom_pers . '</td>
-						<td>' . $nom_pers . '</td>
-						<td>' . $date . '</td>
-						<td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date . '\', iframe: \'false\'});"></td>
-						</tr> ';
+                        <td>' . $id_note . '</td>
+                        <td>' . $prenom_pers . '</td>
+                        <td>' . $nom_pers . '</td>
+                        <td>' . $date . '</td>
+                        <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date . '\', iframe: \'false\'});"></td>
+                        </tr> ';
         }
 
         $table .='</table>';
