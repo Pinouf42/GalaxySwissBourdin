@@ -158,7 +158,7 @@ class Liste {
         
         $sql = $this->DB->query('select id_pers from NOTE_FRAIS where id_note='.$id);
 
-        $Info = '<div id="confirm_buton">
+        $Info = '<div id="confirm_buton">                
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0][id_pers].');" value="#btn_valider#"/>
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0][id_pers].');" value="#btn_refuser#"/>
                 <input id="buton_annuler" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>

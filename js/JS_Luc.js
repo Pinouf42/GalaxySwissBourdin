@@ -45,17 +45,17 @@ function find() {
 } 
 
 function validation(choix,value_valid,id_note,id_pers)
-{   
-    var Mnote=id_note;
-    var Mpers = id_pers;
+{                  
     //0 ouverture de la fenetre de validation
     //1 Cliquer bouton annuler
     //2 Clique bouton valider ou refuser
     if(choix==0)
-    {        
+    {      
         var str= document.getElementById("content_confirm_box").innerHTML;
         var n= str.replace("#value_validation#",value_valid.toLowerCase())
-        .replace("#validation_value#",value_valid.toLowerCase());
+                  .replace("#validation_value#",value_valid.toLowerCase())
+                  .replace("#c_id_note#",id_note)
+                  .replace("#c_id_pers#",id_pers);
         document.getElementById("content_confirm_box").innerHTML=n;
         
         $("#black").fadeIn(500, function()
@@ -99,10 +99,12 @@ function clear_confir_box()
 {
     $("#confirm_box").fadeOut(400,function(){
         str='Êtes vous sur de vouloir #value_validation# la note de frais ?<br/><br/>';
+        str+='<input id="c_id_pers" type="hidden" value="#c_id_pers#"/>';
+        str+='<input id="c_id_note" type="hidden" value="#c_id_note#"/>';
         str+='<b>Commentaire : (255 caractères maximun)</b><br/><br/>';
         str+='<input id="valid_commentaire" type="text" maxlength="255"/><br/><br/>';
-        str+='<input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value);"/>';
-        str+='<input id="buton" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value);" />';
+        str+='<input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);"/>';
+        str+='<input id="buton_annuler" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);" />';
         document.getElementById("content_confirm_box").innerHTML=str;
         $("#black").fadeOut(400);
     });
@@ -117,7 +119,7 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
     alert('Q=QnI&id_note="'+id_note+'"&id_pers="'+id_pers+'"&comm="'+commentaire+'"&etat="'+etat+'');die();
     xhr.onreadystatechange = function() {                            
         if(xhr.readyState == 4) {                                 
-            alert(xhr.responseText); 
+            //alert(xhr.responseText); 
             
             //MANQUE ID_PERS et ID_NOTE à faire passer dans la fonction validation_requete_mssql
             
