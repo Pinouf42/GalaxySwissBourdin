@@ -65,13 +65,15 @@ class Table {
             $id_note = $sql[$i]["id_note"];
             $commentaire = $sql[$i]["commentaire_note"];
 
+            $commentaire_trunque =$this->trunque($commentaire, "20");
+
             $table .= '<tr class="tr_justificatif">
                         <td>' . $id_note . '</td>
                         <td>' . $prenom_pers . '</td>
                         <td>' . $nom_pers . '</td>
                         <td>' . $date . '</td>
-                        <td>' . $commentaire . '</td>
-                        <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date . '\', iframe: \'false\'});"></td>
+                        <td>' . $commentaire_trunque . '</td>
+                        <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date .'&comm=' . $commentaire . '\', iframe: \'false\'});"></td>
                         </tr> ';
         }
 
@@ -86,6 +88,16 @@ class Table {
      *  Ajout de laurent
      * 
      * **** */
+
+    public function trunque($str, $nb) {
+        if (strlen($str) > $nb) {
+            $str = substr($str, 0, $nb);
+            $position_espace = strrpos($str, " ");
+            $texte = substr($str, 0, $position_espace);
+            $str = $texte . "...";
+        }
+        return $str;
+    }
 
     public function tableDeb($attribut = '', $caption = '') {
         return '<table ' . $attribut . '><caption>' . $caption . '</caption>';
