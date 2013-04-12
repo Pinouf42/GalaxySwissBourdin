@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include_once('include/config.php');
+include_once('../include/config.php');
 
 if (!isset($_SESSION['mode']))
 {
@@ -28,9 +28,9 @@ if (1==1)//!isset($_SESSION['mode']))
         if (mssql_num_rows($result_query)==1)
         {
             $_SESSION['mode']=$login['mode'];
-            header('Location: liste_note.php');
+            header('Location: '.RACINE.'liste_note.php');
         }else{
-            header('Location: index.php');
+            header('Location: '.RACINE.'index.php');
         }
         
         
@@ -51,7 +51,7 @@ if (1==1)//!isset($_SESSION['mode']))
 //        }
         
     }else{
-        header('Location: #');
+        header('Location: '.RACINE.'index.php');
     }
 }
 

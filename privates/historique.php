@@ -1,9 +1,10 @@
 <?php
-require_once 'include/language.php';
-require_once 'include/menu.inc.php';
-require_once 'obj/Page.php';
-require_once 'obj/Table.php';
-require_once 'obj/DB.php';
+require_once '../include/constantes.inc.php';
+require_once '../include/language.php';
+require_once '../include/menu.inc.php';
+require_once '../obj/Page.php';
+require_once '../obj/Table.php';
+require_once '../obj/DB.php';
 
 //session_start();
 $_SESSION['mode']=4;
@@ -12,7 +13,7 @@ $_SESSION['id_pers']=4;
 
 $Table = new Table();
 //$DB = new DB();
-$Page = new page('html/historique.html');
+$Page = new page(HTML.'historique.html');
 
 
 

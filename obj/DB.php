@@ -19,7 +19,7 @@ class DB {
      */
     public function  __construct() {
         // Récupération de la configuration
-        require_once 'include/config.php';
+        require_once '../include/config.php';
         
         // Connexion à la base
         $this->link = @mssql_connect($host,$username,$password) or die($this->errorMessage(mssql_error()));
