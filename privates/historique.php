@@ -16,14 +16,14 @@ $Table = new Table();
 $Page = new page(HTML.'historique.html');
 
 
-
+$afficheMenu='';
 $count = count($menu);
 for($i = 0; $i < $count; $i++)
 {
     $item = explode("|", $menu[$i]);
-    $menuLJO.= '<a href="'.$item[1].'"><div id="menu_item">'.$item[0].'</div></a>';
+    $afficheMenu.= '<a href="'.$item[1].'"><div id="menu_item">'.$item[0].'</div></a>';
 }
-$Page->addBalise('MENU',$menuLJO);
+$Page->addBalise('MENU',$afficheMenu);
 
 
 
@@ -60,6 +60,7 @@ switch ($_SESSION['mode'])
     default : echo 'erreur';
         break;
 }
+$sql .=' ORDER BY date_validation DESC';
 
 //                                       $sql = "INSERT INTO validation
 //                                            values('42','pas ok','4','0','10/04/2013')";
@@ -81,12 +82,15 @@ for($i=0; $i<$data['nblig'];$i++)
         $etat_valid = "Rejeté";
     else
         $etat_valid = "Validé";
-    
+    //setlocale(LC_TIME, 'fra_fra');
+    setlocale(LC_TIME, 'fr_FR.UTF8');
+    //setlocale(LC_TIME, 'fr_FR');
+    //setlocale(LC_TIME, 'fr');
     // on crée le tableau qui remplira les TD de la table
     $ligneTD= array(array('attribut'=>'', 
                         'valeur'=>$data[$i]['id_note']),
                     array('attribut'=>'', 
-                        'valeur'=>$data[$i]['date_validation']),
+                        'valeur'=>  strftime('%A %d %B %Y',  strtotime($data[$i]['date_validation']))), //strftime($data[$i]['date_validation'])),
                     array('attribut'=>'class=\'etat_valid'.$data[$i]['etat_validation'].'\'', 
                         'valeur'=>$etat_valid),
                     array('attribut'=>'', 
