@@ -1,9 +1,5 @@
 <?php
 
-session_start();
-
-
-
 //inclusion de l'objet
 require_once '../include/constantes.inc.php';
 require_once '../obj/Table.php';
@@ -41,7 +37,7 @@ $table_note = $Table->Table_note($sql);
 $Page->addBalise('titre', 'Principale');
 $Page->addBalise('content', $table_note);
 $Page->addBalise('menu_2_items', $Mchaine);
-$Page->addBalise('se_deco', $lang['se_deconnecter']);
+$Page->addBalise('se_deco', 'Se déconnecter');
 
 
 // Affichage de la page

@@ -24,7 +24,7 @@
                 n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
                 document.getElementById("justif").innerHTML=n;
                     
-                var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
+                var n = "http://www.whpinouf.com/GalaxySwissBourdin/upload/#url_photo#";
                 document.getElementById("show_img_justif").src=n;
                     
                    
@@ -56,7 +56,7 @@
                     n+="<tr><td class=\"title_lbl_detail_justif\"><b>#lbl_commentaire#</b></td><td>#commentaire#</td></tr></tbody>";
                     document.getElementById("justif").innerHTML=n;
                     
-                    var n = "http://www.whpinouf.com/gsb/upload/#url_photo#";
+                    var n = "http://www.whpinouf.com/GalaxySwissBourdin/upload/#url_photo#";
                     document.getElementById("show_img_justif").src=n;
                     
                     
@@ -136,7 +136,7 @@
                     <div id="header_dialog_form" class="hidden">#titre_detail_justif#</div>
                     <div id="content_dialog" class="hidden">
                         <div id="info_justif">
-                            <img id="show_img_justif" src="http://www.whpinouf.com/gsb/upload/#url_photo#"></img>
+                            <img id="show_img_justif" src="http://www.whpinouf.com/GalaxySwissBourdin/upload/#url_photo#"></img>
                             <div id="content_info_justif">
                                 <table cellspacing="5" id="justif">
                                     <tr>
