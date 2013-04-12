@@ -27,43 +27,43 @@ else
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/style.css">
-<title>Galaxy Swiss Bourdin - Bienvenue</title>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.animate-colors.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript"  src="js/Segoe_UI_400-Segoe_UI_700-Segoe_UI_italic_400.font.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/jquery.upload-1.0.2.js"></script>
-<script type="text/javascript" src="js/jquery-pinouf.js"></script>
-<script type="text/javascript" src="js/lang.js"></script>
-<script>
-Cufon.replace("div#step1");
-Cufon.replace("div#step2_0");
-Cufon.replace("div#step3_0");
-Cufon.replace("div#step2_1");
-Cufon.replace("div#step3_1");
-Cufon.replace("div#confirm_box");
-var g_Pays = false;
-var step = 1;
-var date_ok = false;
-var montant_ok = false;
-var upload_reussi = "<center style='margin-top:200px;font-size:14px;'>Votre justificatif a ete envoye avec succes !</center>";
-var upload_erreur = "<center style='margin-top:200px;font-size:14px;'>Erreur lors de l'envoi de votre justificatif.</center>";
-var champs_non_remplis = "Veuillez corriger les champs entourés de rouge. Verifiez que vous avez également renseigné la date et le montant.";
-function Accueil()
-{
-        $("#base_loading").fadeOut(500, function()
-        {
-            $("#base").fadeIn(500);
-        });
-	
-}
-</script>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/style.css">
+        <title>Galaxy Swiss Bourdin - Bienvenue</title>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.animate-colors.js"></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript"  src="js/Segoe_UI_400-Segoe_UI_700-Segoe_UI_italic_400.font.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.upload-1.0.2.js"></script>
+        <script type="text/javascript" src="js/jquery-pinouf.js"></script>
+        <script type="text/javascript" src="js/lang.js"></script>
+        <script>
+            Cufon.replace("div#step1");
+            Cufon.replace("div#step2_0");
+            Cufon.replace("div#step3_0");
+            Cufon.replace("div#step2_1");
+            Cufon.replace("div#step3_1");
+            Cufon.replace("div#confirm_box");
+            var g_Pays = false;
+            var step = 1;
+            var date_ok = false;
+            var montant_ok = false;
+            var upload_reussi = "<center style='margin-top:200px;font-size:14px;'>Votre justificatif a ete envoye avec succes !</center>";
+            var upload_erreur = "<center style='margin-top:200px;font-size:14px;'>Erreur lors de l'envoi de votre justificatif.</center>";
+            var champs_non_remplis = "Veuillez corriger les champs entourés de rouge. Verifiez que vous avez également renseigné la date et le montant.";
+            function Accueil()
+            {
+                    $("#base_loading").fadeOut(500, function()
+                    {
+                        $("#base").fadeIn(500);
+                    });
+
+            }
+        </script>
+    </head>
 <body onload="Accueil()">
 <div id="black" class="blackbackground"></div>
 <div id="selection_pays">
@@ -89,10 +89,11 @@ function Accueil()
     </table>
   </div>
 </div>
-</div>
 
 <div id="confirm_box">
-    <div id="confirm_box_header">Attention</div>
+    <div id="confirm_box_header">
+        Attention
+    </div>
     <br />
     Vous etes sur le point de soumettre votre justificatif sans avoir renseigne tous les champs. Votre justificatif risque d'etre refuse.<br />
     <br />
@@ -209,12 +210,6 @@ function Accueil()
         while($result = mssql_fetch_array($execute_query))
         {
             $i++;
-            /*echo "<div id=\"t".$result['id_justif']."\" class=\"ticketItem_Note\" onmouseout=\"showMenu('#suppr".$result['id_justif']."', '#edit".$result['id_justif']."', true);\" onmouseover=\"showMenu('#suppr".$result['id_justif']."', '#edit".$result['id_justif']."', false);\">";
-            echo "<a href=\"#\"><div id=\"suppr".$result['id_justif']."\" class=\"ticket_supp\" onclick=\"deleteTicket('#t".$result['id_justif']."', '#suppr".$result['id_justif']."', '#edit".$result['id_justif']."');\"></div></a>";
-            echo "<a href=\"#\"><div id=\"edit".$result['id_justif']."\" class=\"ticket_edit\"></div></a>";
-            echo "</div>";*/
-            
-            
             echo '<div id="t'.$result['id_justif'].'" class="ticketItem_Note" onmouseout="showMenu(\'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\', true);"';
             echo 'onmouseover="showMenu(\'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\', false);"><img src="upload/'.$result['url_photo_justif'].'" width="155px" height="105px"/><div id="ticket_pic">';
             echo '<a href="#"><div id="suppr'.$result['id_justif'].'" class="ticket_supp" onclick="deleteTicket(\'#t'.$result['id_justif'].'\', \'#suppr'.$result['id_justif'].'\', \'#edit'.$result['id_justif'].'\');"></div></a>';
@@ -223,15 +218,6 @@ function Accueil()
         $width = 185*$i;
       ?>
       <script>$("#ticket_conteneur").animate({width:'+=<?php echo $width; ?>px'}, 0);</script>
-  <!-- EXEMPLE TICKET
-    <div id=\"t1\" class=\"ticketItem_Note\" onmouseout=\"showMenu('#suppr1', '#edit1', true);\" onmouseover=\"showMenu('#suppr1', '#edit1', false);\">
-      <a href=\"#\"><div id=\"suppr1\" class=\"ticket_supp\" onclick=\"deleteTicket('#t1', '#suppr1', '#edit1');\"></div></a>
-      <a href=\"#\"><div id=\"edit1\" class=\"ticket_edit\"></div></a>
-    </div>
-    <div id="t2" class="ticketItem_Note" onmouseout="showMenu('#suppr2', '#edit2', true);" onmouseover="showMenu('#suppr2', '#edit2', false);">
-      <a href="#"><div id="suppr2" class="ticket_supp" onclick="deleteTicket('#t2', '#suppr2', '#edit2');"></div></a>
-      <a href="#"><div id="edit2" class="ticket_edit"></div></a>
-    </div> -->
     <div id="t_Add" class="ticketItem_NoteAdd" onmouseout="showAdd('#add', true);" onmouseover="showAdd('#add', false);">
       <a href="#" onclick="open_add_ticket();"><div id="add" class="ticket_add"></div></a>
     </div>
