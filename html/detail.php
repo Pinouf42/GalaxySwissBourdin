@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <link rel="stylesheet" href="css/detail_justif.css">
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bjqs-1.3.min.js"></script>
-        <script src="js/JS_Luc.js"></script>
+        <link rel="stylesheet" href="../css/detail_justif.css">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bjqs-1.3.min.js"></script>
+        <script src="../js/JS_Luc.js"></script>
     </head>
     <script>
         var Masession=0;
