@@ -26,7 +26,7 @@ $Table = new Table();
 
 $Page = new Page(HTML.'table.php');
 
-$sql = $Page->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_note
+$sql = $Page->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_note,commentaire_note
                             from note_frais, PERSONNEL
                             where note_frais.id_pers=personnel.id_pers
                             and id_note not in(select id_note from validation)
