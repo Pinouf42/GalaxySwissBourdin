@@ -4,15 +4,20 @@ include('include/menu.inc.php');
 include('include/config.php');
 mssql_connect($host, $username, $password);
 mssql_select_db($database);
+$commentaire_note = "";
 if(isset($_GET['note']))
 {
     $id_note = stripslashes($_GET['note']);
-    $query = "SELECT COUNT(id_note) as Clos FROM NOTE_FRAIS WHERE id_note = ".$id_note." AND clos_note = 0";
+    $query = "SELECT commentaire_note, clos_note FROM NOTE_FRAIS WHERE id_note = ".$id_note."";
     $execute_query = mssql_query($query);
     $result = mssql_fetch_array($execute_query);
-    if($result['Clos'] == "0")
+    if($result['clos_note'] == "1")
     {
         header('Location: liste_note.php');
+    }
+    else
+    {
+        $commentaire_note = $result['commentaire_note'];
     }
 }
 else
@@ -95,7 +100,6 @@ function Accueil()
     <?php echo $lang['attention_texte2']; ?><br />
     <br />
     <img src="images/btn_oui.png" onclick="confirm_box(true);"/><img src="images/btn_non.png" onclick="confirm_box(false);" /></div>
-<br/><center><a href="include/cloturer_note.php?note=<?php echo $id_note; ?>" class="button red">Cloturer cette note</a></center>  
 <div id="lightbox_bg" onclick="close_add_ticket();"></div>
   <div id="lightbox_body">
       <div id="step1_1" class="step1_1"></div><div id="step2_0" class="step2_0"></div><div id="step2_1" class="step2_1"></div><div id="step3_0" class="step3_0"></div><div id="step3_1" class="step3_1"></div>
@@ -229,8 +233,15 @@ function Accueil()
     <div id="t_Add" class="ticketItem_NoteAdd" onmouseout="showAdd('#add', true);" onmouseover="showAdd('#add', false);">
       <a href="#" onclick="open_add_ticket();"><div id="add" class="ticket_add"></div></a>
     </div>
+  
   </div>
 </div>
+<center>
+    <input id="nom_note" name="nom_note" type="text" value="<?php echo $commentaire_note; ?>" class="saisie_note"/>
+    <br/><br/>
+    <a href="#" class="button yellow" onclick="change_nom_note(<?php echo $id_note; ?>, $('#nom_note').val());$(this).removeClass('button yellow').addClass('button grey');">Changer le nom de la note</a>
+    <br/><br/>
+    <a href="include/cloturer_note.php?note=<?php echo $id_note; ?>" class="button red">Cloturer cette note</a>
   
 <!-- FIN CONTENT BASE -->
 </body>
