@@ -2,10 +2,12 @@ var id = 1;
 var url = location.href.substring(0,location.href.lastIndexOf('/')+1);
 function change_nom_note(id_note, nom_note)
 {
+    var commentaire = nom_note
+    commentaire = commentaire.Replace("'", "\'").Replace('"', '\"');
     $.ajax({
             type: "GET",
             url: url+"include/renommer_note.php",
-            data: "id_note="+id_note+"&commentaire="+nom_note.Replace("'", "\'").Replace('"', '\"')
+            data: "id_note="+id_note+"&commentaire="+commentaire
         });
      alert('Vous avez changé le commentaire de la note.');
 }
