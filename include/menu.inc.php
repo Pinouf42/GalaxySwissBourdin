@@ -1,10 +1,10 @@
 <?php
-
+require_once 'constantes.inc.php';
 $menu = array(
-    0 => "Liste de vos notes|liste_note.php",
-    1 => "Historique des notes|historique.php",
-    2 => "Validation|validation.php",
-    3 => "À propos de nous|about.html",
+    0 => "Liste de vos notes|".RACINE_SITE."liste_note.php",
+    1 => "Historique des notes|".SITE_PRIVATE."historique.php",
+    2 => "Validation|".SITE_PRIVATE."validation.php",
+    3 => "À propos de nous|".RACINE_SITE."about.html",
     );
 
 ?>
