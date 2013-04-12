@@ -7,9 +7,9 @@ if(!isset($_SESSION['langue']))
     $_SESSION['langue'] = "fr_FR";
 }
 switch ($_SESSION['langue']){
-        case "fr_FR": include(RACINE.'include/lang/fr_FR.php');
+        case "fr_FR": include(RACINE_SITE.'include/lang/fr_FR.php');
             break;
-        default : include(RACINE.'include/lang/fr_FR.php');
+        default : include(RACINE_SITE.'include/lang/fr_FR.php');
 }
 
 
