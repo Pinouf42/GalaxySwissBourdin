@@ -83,7 +83,7 @@ function Accueil()
                 $nb_Justif++;
                 $montant_Total += $result_justif['montant'];
             }
-            echo "<a href=\"saisie_note.php?note=".$result[0]."\"><input type=\"button\" value=\"".$result[2]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"btn_submit\"/></a><br>";
+            echo "<a href=\"saisie_note.php?note=".$result[0]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"button blue\">".$result[2]."</a>";
             echo "<div id=\"info_note".$result[0]."\" class=\"info_note\"><b>Nombre de justificatifs:</b> ".$nb_Justif." - <b>Montant total:</b> ".$montant_Total."€</div>";
             
         }
@@ -97,8 +97,8 @@ function Accueil()
 <input type="button" value="Editer/Cloturer la note U kidding me?!" onmouseover="showInfoNote('#info_note4', true);" onmouseout="showInfoNote('#info_note4', false);" class="btn_submit"/><br>
 <div id="info_note4" class="info_note"><b>Nombre de notes:</b> 0 - <b>Montant total:</b> 0€</div>-->
 
-
-<a href="include/create_note.php"><input type="button" value="Créer une note" class="btn_submit"/></a><br>
+    <a href="include/create_note.php" class="button green top">Créer une note</a>
+<!-- <a href="include/create_note.php"><input type="button" value="Créer une note" class="btn_submit"/></a><br> -->
 
  </div>
 <!-- FIN CONTENT BASE -->
