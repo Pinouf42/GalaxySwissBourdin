@@ -5,7 +5,7 @@ function change_nom_note(id_note, nom_note)
     $.ajax({
             type: "GET",
             url: url+"include/renommer_note.php",
-            data: "id_note="+id_note+"&commentaire="+nom_note
+            data: "id_note="+id_note+"&commentaire="+nom_note.Replace("'", "\'").Replace('"', '\"')
         });
      alert('Vous avez changé le commentaire de la note.');
 }
