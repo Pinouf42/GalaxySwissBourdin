@@ -29,6 +29,8 @@ if (1==1)//!isset($_SESSION['mode']))
         if (mssql_num_rows($result_query)==1)
         {
             $_SESSION['mode']=$login['mode'];
+            $_SESSION['nom']=$login['nom_pers'];
+            $_SESSION['prenom']=$login['prenom_pers'];
             header('Location: '.RACINE_SITE.'liste_note.php');
         }else{
             header('Location: '.RACINE_SITE.'index.php');
