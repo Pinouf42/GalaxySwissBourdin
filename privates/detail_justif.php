@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 //inclusion de l'objet
 require_once '../include/constantes.inc.php';
@@ -49,19 +48,19 @@ $Page->addBalise('confirm_buton_note', $confirm_buton_justif);
 
 
 /* Début Traduction */
-$Page->addBalise('lbl_visiteur', $lang['lbl_visiteur']);
-$Page->addBalise('lbl_responsable', $lang['lbl_responsable']);
-$Page->addBalise('lbl_region', $lang['lbl_region']);
-$Page->addBalise('titre_detail_justif', $lang['titre_detail_justif']);
-$Page->addBalise('lbl_lieu', $lang['lbl_lieu']);
-$Page->addBalise('lbl_commentaire', $lang['lbl_commentaire']);
-$Page->addBalise('lbl_num_justif', $lang['lbl_num_justif']);
-$Page->addBalise('lbl_date_soumission', $lang['lbl_date_soumission']);
-$Page->addBalise('lbl_type_depense', $lang['lbl_type_depense']);
-$Page->addBalise('lbl_montant', $lang['lbl_montant']);
-$Page->addBalise('btn_valider', $lang['btn_valider']);
-$Page->addBalise('btn_refuser', $lang['btn_refuser']);
-$Page->addBalise('btn_annuler', $lang['btn_annuler']);
+$Page->addBalise('lbl_visiteur', 'Visiteur :');
+$Page->addBalise('lbl_responsable', 'Responsable :');
+$Page->addBalise('lbl_region', 'Région :');
+$Page->addBalise('titre_detail_justif', 'Récapitulatif justificatif');
+$Page->addBalise('lbl_lieu', 'Lieu :');
+$Page->addBalise('lbl_commentaire', 'Commentaire :');
+$Page->addBalise('lbl_num_justif', 'N° Justificatif :');
+$Page->addBalise('lbl_date_soumission', 'Date soumission :');
+$Page->addBalise('lbl_type_depense', 'Type dépense :');
+$Page->addBalise('lbl_montant', 'Montant :');
+$Page->addBalise('btn_valider', 'Valider');
+$Page->addBalise('btn_refuser', 'Refuser');
+$Page->addBalise('btn_annuler', 'Annuler');
 $Page->addBalise('id_note', $_GET['id']);
 /* Fin Traduction */
 

@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-include_once('../include/config.php');
+require_once('../include/config.php');
+require_once '../include/constantes.inc.php';
 
 if (!isset($_SESSION['mode']))
 {
@@ -28,9 +29,9 @@ if (1==1)//!isset($_SESSION['mode']))
         if (mssql_num_rows($result_query)==1)
         {
             $_SESSION['mode']=$login['mode'];
-            header('Location: '.RACINE.'liste_note.php');
+            header('Location: '.RACINE_SITE.'liste_note.php');
         }else{
-            header('Location: '.RACINE.'index.php');
+            header('Location: '.RACINE_SITE.'index.php');
         }
         
         
@@ -51,7 +52,7 @@ if (1==1)//!isset($_SESSION['mode']))
 //        }
         
     }else{
-        header('Location: '.RACINE.'index.php');
+        header('Location: '.RACINE_SITE.'index.php');
     }
 }
 

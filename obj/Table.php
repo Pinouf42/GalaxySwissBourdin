@@ -57,7 +57,8 @@ class Table {
 						</tfoot><tbody>';
 
         for ($i = 0; $i < $sql['nblig']; $i++) {
-            $date = date("d-m-Y", strtotime($sql[$i]["datesoumission_note"]));
+            setlocale(LC_TIME, 'fr_FR.UTF8');
+            $date = strftime("%A %d %B %Y", strtotime($sql[$i]["datesoumission_note"]));
             $nom_pers = $sql[$i]["prenom_pers"];
             $prenom_pers = $sql[$i]["nom_pers"];
             $id_note = $sql[$i]["id_note"];
