@@ -1,7 +1,7 @@
 <?php
 
-require_once 'include/language.php';
-require_once 'obj/DB.php';
+require_once '../include/language.php';
+require_once '../obj/DB.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.

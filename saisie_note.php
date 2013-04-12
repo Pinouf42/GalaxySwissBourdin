@@ -239,7 +239,7 @@ function Accueil()
 <center>
     <input id="nom_note" name="nom_note" type="text" value="<?php echo $commentaire_note; ?>" class="saisie_note"/>
     <br/><br/>
-    <a href="#" class="button yellow" onclick="change_nom_note(<?php echo $id_note; ?>, $('#nom_note').val());$(this).removeClass('button yellow').addClass('button grey');">Changer le nom de la note</a>
+    <a href="#" class="button yellow" onclick="change_nom_note(<?php echo $id_note; ?>, $('#nom_note').val());$(this).removeClass('button yellow').addClass('button grey');">Changer le commentaire de la note</a>
     <br/><br/>
     <a href="include/cloturer_note.php?note=<?php echo $id_note; ?>" class="button red">Cloturer cette note</a>
   

@@ -5,11 +5,11 @@ require_once '../include/language.php';
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="css/style_valid.css" />           
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/style_valid.css" />           
+        <link rel="stylesheet" href="../css/style.css" />
         <title>#titre#</title>
-        <script src="js/jquery.min.js"></script>        
-        <script type="text/javascript" src="js/JS_Luc.js"></script> 
+        <script src="../js/jquery.min.js"></script>        
+        <script type="text/javascript" src="../js/JS_Luc.js"></script> 
 
     </head>
 
@@ -24,7 +24,7 @@ require_once '../include/language.php';
             <div id="logged">
                 <table width="250" border="0">
                     <tr>
-                        <td width="40" height="40" align="center" valign="middle"><img src="images/user.png" /></td>
+                        <td width="40" height="40" align="center" valign="middle"><img src="../images/user.png" /></td>
                         <td width="146" valign="middle"><b>Luc Sinardet</b><br />
                             <a href="#">#se_deco#</a></td>
                     </tr>
@@ -32,7 +32,7 @@ require_once '../include/language.php';
             </div>
         </div> 
 
-        <script src="js/jquery.pageslide.min.js"></script>
+        <script src="../js/jquery.pageslide.min.js"></script>
         <div id="base">
             <!-- Début tableau liste des notes des frais -->
             <div id="tab_justif_div"> 

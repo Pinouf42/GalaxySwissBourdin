@@ -116,7 +116,7 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
 {        
     var Chaine_etat;
     xhr=new XMLHttpRequest();
-    xhr.open('POST', 'include/Obj_luc.php'); 
+    xhr.open('POST', '../actions/valid_note.php'); 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send('Q=QnI&id_note='+id_note+'&id_pers='+id_pers+'&comm='+commentaire+'&etat='+etat+'');  
     xhr.onreadystatechange = function() {                            
