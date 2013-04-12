@@ -1,16 +1,18 @@
 var id = 1;
 var url = location.href.substring(0,location.href.lastIndexOf('/')+1);
 
-function addslashes( str ) {
-    return (str + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
-}
+String.prototype.addSlashes = function() 
+{ 
+   //no need to do (str+'') anymore because 'this' can only be a string
+   return this.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
+} 
 
 function change_nom_note(id_note, nom_note)
 {
     $.ajax({
             type: "GET",
             url: url+"include/renommer_note.php",
-            data: "id_note="+id_note+"&commentaire="+addslashes(nom_note)
+            data: "id_note="+id_note+"&commentaire="+nom_note.addSlashes()
         });
      alert('Vous avez changé le commentaire de la note.');
 }
