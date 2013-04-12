@@ -110,7 +110,8 @@ function Accueil()
           <input type="file" id="tbx_send" name="tbx_send" size="60" />
           <br />
           <br />
-          <input type="button" value="Envoyer le ticket !" class="btn_submit" onclick="perform_step()" />
+          <a href="#" onclick="perform_step()" class="button yellow">Envoyer le ticket !</a>
+          <!--<input type="button" value="Envoyer le ticket !" class="btn_submit" onclick="perform_step()" />-->
         </div>
       </div>
       <!-- FIN CONTENT STEP 1-->
@@ -185,8 +186,10 @@ function Accueil()
       </table>
       <center>
         <br />
-        <input type="button" value="Retour" class="btn_submit" onclick="back_step()"/>
-        <input type="button" value="Valider le justificatif" class="btn_submit" onclick="perform_step()"/>
+        <a href="#" onclick="back_step()" class="button red">Retour</a>
+        <!--<input type="button" value="Retour" class="btn_submit" onclick="back_step()"/>
+        <input type="button" value="Valider le justificatif" class="btn_submit" onclick="perform_step()"/>-->
+        <a href="#" onclick="perform_step()" class="button green">Valider le justificatif</a>
       </center>
     </div>
     </div>
