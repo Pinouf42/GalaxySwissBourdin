@@ -1,5 +1,13 @@
 var id = 1;
 var url = location.href.substring(0,location.href.lastIndexOf('/')+1);
+
+function addslashes(ch) {
+ch = ch.replace(/\\/g,"\\\\")
+ch = ch.replace(/\'/g,"\\'")
+ch = ch.replace(/\"/g,"\\\"")
+return ch
+}
+
 function change_nom_note(id_note, nom_note)
 {
     $.ajax({
