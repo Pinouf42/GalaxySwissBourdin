@@ -261,6 +261,7 @@ a:hover {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 40px;
+        margin-bottom: 40px;
 }
 .justif_details {
 	margin-left: auto;
@@ -273,6 +274,29 @@ a:hover {
 	color: #666;
 	background: #FFF;
 }
+
+.justif_details td input[type=text]:focus{
+    border:1px solid #2694d3;
+    color:#333;
+    box-shadow: 0px 1px 5px #AAA;
+}
+
+.saisie_note
+{
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #666;
+    color: #666;
+    background: #FFF;
+}
+
+.saisie_note:focus
+{
+    border:1px solid #2694d3;
+    color:#333;
+    box-shadow: 0px 1px 5px #AAA;
+}
+
 #step_master {
 	width: 447px;
 	height: 30px;

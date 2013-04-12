@@ -1,4 +1,15 @@
 var id = 1;
+var url = location.href.substring(0,location.href.lastIndexOf('/')+1);
+function change_nom_note(id_note, nom_note)
+{
+    $.ajax({
+            type: "GET",
+            url: url+"include/renommer_note.php",
+            data: "id_note="+id_note+"&commentaire="+nom_note
+        });
+     alert('Vous avez changé le nom de la note.');
+}
+
 function verif_date(input)
 {
 	reg = new RegExp(/^[0-3]{1}[0-9]{1}[\/][0-1]{1}[0-9]{1}[\/][0-9]{4}$/);
@@ -312,7 +323,7 @@ function deleteTicket(id_ticket, id_supp, id_edit)
 {
         $.ajax({
             type: "POST",
-            url: "delete_ticket.php",
+            url: url+"include/delete_ticket.php",
             data: "justif="+id_ticket.replace('#t', '')
         });
 	$(id_supp).stop().fadeOut(100);
