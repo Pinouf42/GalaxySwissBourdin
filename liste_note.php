@@ -81,7 +81,7 @@ include('include/config.php');
                 $nb_Justif++;
                 $montant_Total += $result_justif['montant'];
             }
-            echo "<a href=\"saisie_note.php?note=".$result[0]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"button blue\">".$result[2]."</a>";
+            echo "<a href=\"saisie_note.php?note=".$result[0]."\" onmouseover=\"showInfoNote('#info_note".$result[0]."', true);\" onmouseout=\"showInfoNote('#info_note".$result[0]."', false);\" class=\"button blue\">".stripslashes($result[2])."</a>";
             echo "<div id=\"info_note".$result[0]."\" class=\"info_note\"><b>Nombre de justificatifs:</b> ".$nb_Justif." - <b>Montant total:</b> ".$montant_Total."€</div>";
             
         }

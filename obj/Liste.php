@@ -56,7 +56,7 @@ class Liste {
 
 
                 $lib_dep = $sql[$i]["lib_dep"];
-                $lib_lieu = $sql[$i]["lib_lieu"];
+                $lib_lieu = $sql[$i]["lieu"];
                 $montant = $sql[$i]["montant"];
                 $url_photo_justif = $sql[$i]["url_photo_justif"];
                 $id_justif = $sql[$i]["id_justif"];
@@ -109,21 +109,22 @@ class Liste {
         return $Liste;
     }
 
-    public function Info_note_frais($id, $nom, $prenom, $date, $sql) {
+    public function Info_note_frais($id, $nom, $prenom, $date,$commentaire, $sql) {
         $Info;
 
         if (isset($sql[0])) {
 
             $nom_pers = $sql[0]['nom_pers'];
             $prenom_pers = $sql[0]['prenom_pers'];
-            $lib_reg = utf8_encode($sql[0]["lib_reg"]);
+            $lib_reg = utf8_encode($sql[0]["lib_reg"]);             
 
             $Info = '<table id="justif_info">
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom . ' ' . $prenom . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>' . $nom_pers . ' ' . $prenom_pers . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>' . $lib_reg . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_date_soumission#</b></td><td>' . $date . '</td></tr>
-                    <tr><td class="title_lbl_detail_justif"><b>Id_note :</b></td><td>#id_note#</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_commentaire_note#</b></td><td>' . $commentaire . '</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_id_note#</b></td><td>#id_note#</td></tr>
                     </table>';
         } else {
             $Info = '<table id="justif_info">
@@ -131,7 +132,8 @@ class Liste {
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>A dévelloper function info_justif()</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>A dévelloper function info_justif()</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_date_soumission#</b></td><td>' . $date . '</td></tr>
-                    <tr><td class="title_lbl_detail_justif"><b>Id_note :</b></td><td>#id_note#</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_commentaire_note#</b></td><td>' . $commentaire . '</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_id_note#</b></td><td>#id_note#</td></tr>
                     </table>';
         }
         return $Info;

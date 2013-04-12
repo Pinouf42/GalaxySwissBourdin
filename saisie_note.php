@@ -6,7 +6,7 @@ mssql_select_db($database);
 $commentaire_note = "";
 if(isset($_GET['note']))
 {
-    $id_note = stripslashes($_GET['note']);
+    $id_note = addslashes($_GET['note']);
     $query = "SELECT commentaire_note, clos_note FROM NOTE_FRAIS WHERE id_note = ".$id_note."";
     $execute_query = mssql_query($query);
     $result = mssql_fetch_array($execute_query);
@@ -225,7 +225,7 @@ else
   </div>
 </div>
 <center>
-    <input id="nom_note" name="nom_note" type="text" value="<?php echo $commentaire_note; ?>" class="saisie_note"/>
+    <input id="nom_note" name="nom_note" type="text" maxlength="100" value="<?php echo $commentaire_note; ?>" class="saisie_note"/>
     <br/><br/>
     <a href="#" class="button yellow" onclick="change_nom_note(<?php echo $id_note; ?>, $('#nom_note').val());$(this).removeClass('button yellow').addClass('button grey');">Changer le commentaire de la note</a>
     <br/><br/>

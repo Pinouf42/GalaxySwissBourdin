@@ -15,8 +15,7 @@ body{
 
 /* Debut css pour detail note de frais */
 #dialog_form{    
-    font-size: 12px;  
-    font-variant: small-caps;
+    font-size: 12px;      
     -moz-box-shadow:0px 0px 4px #000;
     -webkit-box-shadow:0px 0px 4px #000;
     box-shadow:0px 0px 8px #000;
@@ -62,6 +61,11 @@ body{
     border-bottom: 1px solid #AAA;
 }
 
+#justif_info .title_lbl_detail_justif
+{
+    min-width: 120px;
+}
+
 #info_visiteur{
     width: auto;
     text-align: left;    
@@ -70,7 +74,7 @@ body{
 }
 
 #content_info_visiteur{
-    margin: 5px 5px 5px 5px;
+    margin: 4px 4px 4px 4px;
 }
 
 #show_img_justif{
