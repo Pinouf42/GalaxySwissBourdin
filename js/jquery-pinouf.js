@@ -7,7 +7,7 @@ function change_nom_note(id_note, nom_note)
             url: url+"include/renommer_note.php",
             data: "id_note="+id_note+"&commentaire="+nom_note
         });
-     alert('Vous avez changé le nom de la note.');
+     alert('Vous avez changé le commentaire de la note.');
 }
 
 function verif_date(input)

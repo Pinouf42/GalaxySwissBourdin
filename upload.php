@@ -31,17 +31,43 @@ else
                         $type = stripslashes($_POST['tbx_type']);
                         $commentaire = stripslashes($_POST['tbx_commentaire']);
                         $id_note = stripslashes($_POST['id_note']);
+                        switch($type)
+                        {
+                            case 'Essence':
+                                $type = "1";
+                                break;
+                            case 'Restaurant':
+                                $type = "2";
+                                break;
+                            case 'Hotêl':
+                                $type = "3";
+                                break;
+                            case 'Taxi':
+                                $type = "4";
+                                break;
+                            case 'Avion':
+                                $type = "5";
+                                break;
+                            case 'Bateau':
+                                $type = "6";
+                                break;
+                            case 'Autre':
+                                $type = "7";
+                                break;
+                            default:
+                                $type = "7";
+                        }
 
                         mssql_connect($host, $username, $password);
                         mssql_select_db($database);
-                        $query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES ('".$montant."', '".$lieu."', '".$commentaire."', '5' , '".$new_filename."', '".$id_note."')";
+                        $query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES ('".$montant."', '".$lieu."', '".$commentaire."', '".$type."' , '".$new_filename."', '".$id_note."')";
                         if(mssql_query($query))
                         {
                             $data = $new_filename; //le retour sera le nom du fichier.
                         }
                         else
                         {
-                            $data = mysql_error();
+                            $data = "0";
                         }
                         mssql_close();
 			
@@ -54,10 +80,8 @@ else
 	else
 	{
 		$data = "0";
-	}
+        }
 }
-
-
 
 echo $data; //on affiche finalement le résultat dans la page.
 ?>
