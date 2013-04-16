@@ -29,7 +29,7 @@ $sql = $Page->DB->query('select lib_reg, nom_pers, prenom_pers
                                 and NOTE_FRAIS.id_pers=VISITEUR.id_vis
                                 and id_note=' . $_GET['id'].'');
 
-$Info_justif = $Liste->Info_note_frais($_GET['id'], $_GET['nom'], $_GET['prenom'], $_GET['date'], $_GET["comm"], $sql);
+$Info_justif = $Liste->Info_note_frais($_GET['id'], $_GET['nom_prenom'], $_GET['montant_tot'], $_GET['date'], $_GET["comm"], $sql);
 
 $sql = $Page->DB->query('select id_pers from NOTE_FRAIS where id_note=' . $_GET['id'].'');
 
@@ -63,6 +63,7 @@ $Page->addBalise('btn_refuser', 'Refuser');
 $Page->addBalise('btn_annuler', 'Annuler');
 $Page->addBalise('lbl_id_note', 'Id note :');
 $Page->addBalise('lbl_commentaire_note', 'Commentaire note :');
+$Page->addBalise('lbl_montant_total', 'Montant total :');
 $Page->addBalise('id_note', $_GET['id']);
 /* Fin Traduction */
 

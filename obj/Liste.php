@@ -109,7 +109,7 @@ class Liste {
         return $Liste;
     }
 
-    public function Info_note_frais($id, $nom, $prenom, $date,$commentaire, $sql) {
+    public function Info_note_frais($id, $nom_prenom, $montant_tot, $date,$commentaire, $sql) {
         $Info;
 
         if (isset($sql[0])) {
@@ -119,18 +119,20 @@ class Liste {
             $lib_reg = utf8_encode($sql[0]["lib_reg"]);             
 
             $Info = '<table id="justif_info">
-                    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom . ' ' . $prenom . '</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom_prenom . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>' . $nom_pers . ' ' . $prenom_pers . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>' . $lib_reg . '</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_montant_total#</b></td><td>' . $montant_tot . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_date_soumission#</b></td><td>' . $date . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_commentaire_note#</b></td><td>' . $commentaire . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_id_note#</b></td><td>#id_note#</td></tr>
                     </table>';
         } else {
             $Info = '<table id="justif_info">
-                    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom . ' ' . $prenom . '</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_visiteur#</b></td><td>' . $nom_prenom . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_responsable#</b></td><td>A dévelloper function info_justif()</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_region#</b></td><td>A dévelloper function info_justif()</td></tr>
+                    <tr><td class="title_lbl_detail_justif"><b>#lbl_montant_total#</b></td><td>' . $montant_tot . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_date_soumission#</b></td><td>' . $date . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_commentaire_note#</b></td><td>' . $commentaire . '</td></tr>
                     <tr><td class="title_lbl_detail_justif"><b>#lbl_id_note#</b></td><td>#id_note#</td></tr>

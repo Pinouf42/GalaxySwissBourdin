@@ -72,7 +72,9 @@ class Table {
             for($y=0;$y<$sql_montant[$id_note]['nblig'];$y++)
             {
                 $montant_tot = $sql_montant[$id_note][$y]['montant'] + $montant_tot;
-            }            
+            }    
+            
+            $montant_tot= $montant_tot." €";
             
 
             $commentaire_trunque =$this->trunque($commentaire, "20");
@@ -82,9 +84,9 @@ class Table {
                         <td>' . $nom_prenom_pers . '</td>                       
                         <td>' . $date . '</td>
                         <td>' . $nbr_justif . '</td>
-                        <td>' . $montant_tot . ' €</td>
+                        <td>' . $montant_tot . '</td>
                         <td>' . $commentaire_trunque . '</td>
-                        <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date .'&comm=' . $commentaire . '\', iframe: \'false\'});"></td>
+                        <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom_prenom=' . $nom_prenom_pers . '&montant_tot=' . $montant_tot . '&date=' . $date .'&comm=' . $commentaire . '\', iframe: \'false\'});"></td>
                         </tr> ';
         }
 
