@@ -32,7 +32,13 @@ $sql = $Page->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_n
                             and id_note not in(select id_note from validation)
                             and clos_note=1");
 
-$table_note = $Table->Table_note($sql);
+for($i=0; $i < $sql['nblig'];$i++)
+{
+    $sql_montant[$sql[$i]['id_note']] = $Page->DB->query('select montant from justificatif where id_note='.$sql[$i]['id_note'].'');
+    
+}
+
+$table_note = $Table->Table_note($sql,$sql_montant);
 
 $Page->addBalise('titre', 'Principale');
 $Page->addBalise('content', $table_note);

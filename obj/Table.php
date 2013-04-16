@@ -40,38 +40,49 @@ class Table {
      * @param string $name Nom du champ
      * @return string code HTML
      */
-    public function Table_note($sql) {
+    public function Table_note($sql,$sql_montant) {
         $this->tabulation++;
+        
+        
 
         // Préparation du tableau des notes de frais
         $table = '<table id="table_note">
 						<caption>Tableau de validation des note de frais</caption>
 						<thead><tr  class="entete" >
 						<th scope="col">N° note</th>
-						<th scope="col">Nom visiteur</th>
-						<th scope="col">Prénom visiteur</th>
+						<th scope="col">Nom Prénom visiteur</th>						
 						<th scope="col">Date soumission</th>
+                                                <th scope="col">Nombre justificatifs</th>
+                                                <th scope="col">Montant total</th>
                                                 <th scope="col">Commentaire</th>
 						<th scope="col">A valider</th></tr></thead>
-						<tfoot><tr><th scope="row"></th><td colspan="6"></td>
+						<tfoot><tr><th scope="row"></th><td colspan="7"></td>
 						</tr>
 						</tfoot><tbody>';
 
         for ($i = 0; $i < $sql['nblig']; $i++) {
             setlocale(LC_TIME, 'fr_FR.UTF8');
-            $date = strftime("%A %d %B %Y", strtotime($sql[$i]["datesoumission_note"]));
-            $nom_pers = $sql[$i]["prenom_pers"];
-            $prenom_pers = $sql[$i]["nom_pers"];
+            $date = strftime("%d %B %Y", strtotime($sql[$i]["datesoumission_note"]));
+            $nom_prenom_pers = $sql[$i]["prenom_pers"]." ".$sql[$i]["nom_pers"];            
             $id_note = $sql[$i]["id_note"];
             $commentaire = $sql[$i]["commentaire_note"];
+            $montant_tot=0;
+            $nbr_justif = $sql_montant[$id_note]['nblig'];
+            
+            for($y=0;$y<$sql_montant[$id_note]['nblig'];$y++)
+            {
+                $montant_tot = $sql_montant[$id_note][$y]['montant'] + $montant_tot;
+            }            
+            
 
             $commentaire_trunque =$this->trunque($commentaire, "20");
 
             $table .= '<tr class="tr_justificatif">
                         <td>' . $id_note . '</td>
-                        <td>' . $prenom_pers . '</td>
-                        <td>' . $nom_pers . '</td>
+                        <td>' . $nom_prenom_pers . '</td>                       
                         <td>' . $date . '</td>
+                        <td>' . $nbr_justif . '</td>
+                        <td>' . $montant_tot . ' €</td>
                         <td>' . $commentaire_trunque . '</td>
                         <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom=' . $nom_pers . '&prenom=' . $prenom_pers . '&date=' . $date .'&comm=' . $commentaire . '\', iframe: \'false\'});"></td>
                         </tr> ';
