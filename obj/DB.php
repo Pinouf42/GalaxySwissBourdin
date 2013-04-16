@@ -64,6 +64,7 @@ class DB {
                         $tab['nblig']=$i;
                         $tab['cols']=$tabnom;
                         $tab['sql']=$query;
+                        $tab['rows']=mssql_rows_affected($this->link);
                 }
                 //print_r($tab);
                 return $tab;

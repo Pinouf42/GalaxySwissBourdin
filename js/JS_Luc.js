@@ -5,6 +5,14 @@ function Accueil(Obj)
 {
     $("#"+Obj).fadeIn(500);
 }
+
+function popup_show_img(src_img)
+{
+/*
+    $(".blackbackground").css('display','block');
+    $("#popup_sjow_img").attr('src',src_img);
+    */
+}
               
 function popup_show(Cls_name,Chaine_info)
 {       
@@ -72,8 +80,15 @@ function validation(choix,value_valid,id_note,id_pers)
         if(document.getElementById("valid_commentaire").value=="")
         {
             if(confirm("Il n'y a pas de commentaire êtes vous sur de vouloir " + value_valid + " ?")==true)
-            {
-                
+            {             
+                if(value_valid.toLowerCase()=="valider")
+                {
+                    etat = 1;  
+                }
+                else if(value_valid.toLowerCase()=="refuser")
+                {
+                    etat = 0; 
+                }            
                 var commentaire = document.getElementById("valid_commentaire").value;             
                 validation_requete_mssql(id_note,id_pers,commentaire, etat);
             }
@@ -91,7 +106,7 @@ function validation(choix,value_valid,id_note,id_pers)
                 etat = 0; 
             }            
             var commentaire = document.getElementById("valid_commentaire").value;             
-            validation_requete_mssql(id_note,id_pers,commentaire, etat);
+            validation_requete_mssql(id_note,id_pers,commentaire, etat);            
         }      
         clear_confir_box();        
     }
@@ -103,8 +118,9 @@ function clear_confir_box()
         str='Êtes vous sur de vouloir #value_validation# la note de frais ?<br/><br/>';
         str+='<input id="c_id_pers" type="hidden" value="#c_id_pers#"/>';
         str+='<input id="c_id_note" type="hidden" value="#c_id_note#"/>';
-        str+='<b>Commentaire : (255 caractères maximun)</b><br/><br/>';
-        str+='<input id="valid_commentaire" type="text" maxlength="255"/><br/><br/>';
+        str+='<b>Commentaire : (255 caractères maximun)</b><br/>';
+        str+='<input id="valid_commentaire" type="text" maxlength="255"/><br/>';
+        str+='(<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>';
         str+='<input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);"/>';
         str+='<input id="buton_annuler" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);" />';
         document.getElementById("content_confirm_box").innerHTML=str;
@@ -122,26 +138,55 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
     xhr.onreadystatechange = function() {                            
         if(xhr.readyState == 4) {
             var Tab_rep_valid =JSON.parse(xhr.responseText);            
-            if(Tab_rep_valid.tab.nblig!=0)
+            if(Tab_rep_valid.rows!=0)
             {   
                 if(etat==1)
                 {
-                    Chaine_etat="validée";
+                    Chaine_etat="La note de frais à bien été validée</br></br>ous allé être redirigé dans ";
                 }
                 else
                 {
-                    Chaine_etat="refusée";       
+                    Chaine_etat="La note de frais à bien été refusée</br></br>Vous allé être redirigé dans ";       
                 }
-                popup_show("success","La note de frais à bien été "+Chaine_etat); 
+                setTimeout(function(){
+                    popup_show("success",Chaine_etat); 
+                    compte_a_rebour(Chaine_etat);
+                },1000);
+                
             }
-            else if(Tab_rep_valid.tab.nblig==0)
+            else if(Tab_rep_valid.rows==0)
             {
-                popup_show("error","Erreur lors de l'insertion en base de donnée. Veuillez recommencer !");
+                setTimeout(function(){
+                    popup_show("error","Erreur lors de l'insertion en base de donnée. Veuillez recommencer !");
+                },1000);
+                
+                              
             }            
         } 
         setTimeout(function(){
             popup_hide()
-        },5000);
-    }
-    
+        },7000);
+    }    
 }
+
+var time=5;
+var time2=1000;
+    
+function compte_a_rebour(chaine) {   
+    
+    if(time>=0) {
+        
+        document.getElementById("popup_info").innerHTML=chaine+time+" secondes"; 
+        
+        time=time-1
+        setTimeout(function(){
+            compte_a_rebour(chaine);
+        }, time2);
+    }
+    else {
+        window.top.location = window.top.location;
+    }
+}
+
+
+

@@ -12,7 +12,7 @@ $Liste = new Liste();
 
 // Test du formulaire
 
-$Page = new Page(HTML.'detail.php');
+$Page = new Page(HTML.'detail.html');
 
 $sql = $Page->DB->query('select id_note, montant, lib_dep ,url_photo_justif, id_justif, lieu, commentaire
                                  from JUSTIFICATIF, TYPE_DEPENSE

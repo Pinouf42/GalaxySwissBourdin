@@ -24,10 +24,7 @@ function query_bdd() {
     
     //$chaine = $commentaire." -- ".$etat." -- ".$id_pers." -- ".$id_note." -- ".$date_validation;
     $sql ="INSERT INTO VALIDATION values ('".$id_note."','".$commentaire."','".$id_pers."','".$etat."','".$date_validation."')";
-    //$sql = "select * from validation";
     $chaine =$DB->query($sql);
-    
-    
     
     echo json_encode($chaine);
     

@@ -24,7 +24,7 @@ $Table = new Table();
 
 // Test du formulaire
 
-$Page = new Page(HTML.'table.php');
+$Page = new Page(HTML.'table.html');
 
 $sql = $Page->DB->query("select id_note, nom_pers, prenom_pers, datesoumission_note,commentaire_note
                             from note_frais, PERSONNEL
