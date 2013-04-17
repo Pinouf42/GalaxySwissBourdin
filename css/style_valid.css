@@ -302,3 +302,25 @@
 }
 
 /* Fin css info popup */
+
+.blackbackground {
+    position: fixed;
+    z-index: 999;
+    background: #000;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#popup__show_img
+{
+    position: absolute;
+    top:50%;
+    left :50%;
+    z-index: 1000;
+    
+    max-width: 700px;
+    display: none;
+
+}

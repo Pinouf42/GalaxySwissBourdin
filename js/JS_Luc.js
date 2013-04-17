@@ -8,11 +8,47 @@ function Accueil(Obj)
 
 function popup_show_img(src_img)
 {
-/*
-    $(".blackbackground").css('display','block');
-    $("#popup_sjow_img").attr('src',src_img);
-    */
+    
+    if($('.blackbackground', window.parent.document).css('display') == 'block')
+    {
+        $('.blackbackground', window.parent.document).fadeOut(400);
+        $('#popup__show_img', window.parent.document).fadeOut(400);
+    }
+    else
+    {
+        centerThis($('.blackbackground', window.parent.document).fadeIn(400));
+        $('#popup__show_img', window.parent.document).attr('src', src_img);
+        centerThis($('#popup__show_img', window.parent.document).fadeIn(400));
+    }
+    
 }
+
+function centerThis(element) {
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+    var elementHeight = $(element).height();
+    var elementWidth = $(element).width();
+
+    var elementTop, elementLeft;
+
+    if (windowHeight <= elementHeight) {
+        elementTop = $(window).scrollTop();
+    } else {
+        elementTop = ((windowHeight - elementHeight) / 2) + $(window).scrollTop();
+    }
+
+    if (windowWidth <= elementWidth) {
+        elementLeft = $(window).scrollLeft();
+    } else {
+        elementLeft = ((windowWidth - elementWidth) / 2) + $(window).scrollLeft();
+    }
+
+    $(element).css({
+        'top': elementTop,
+        'left': elementLeft
+    });
+}
+
               
 function popup_show(Cls_name,Chaine_info)
 {       
