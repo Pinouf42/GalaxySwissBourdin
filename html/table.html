@@ -1,6 +1,3 @@
-<?php
-require_once '../include/language.php';
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -16,8 +13,12 @@ require_once '../include/language.php';
 
 
     <body onload="Accueil('base');">  
-        <div id="black" class="blackbackground" onclick="popup_show_img('')"></div>
-        <img id="popup__show_img" src=""/>   
+        <div id="black" class="blackbackground" onclick="Popup_show_img(this.id)"></div>
+        <div id="dialog_form_img" class="hide">
+            <img id="popup_show_img" src=""/> 
+            <!--<div class="close" id="" onclick="Popup_show_img(this.id)"></div>-->
+        </div>
+
         <div id="selection_pays">
             <div id="bandeau_pays"></div>
             <div id="menu_2_items">  

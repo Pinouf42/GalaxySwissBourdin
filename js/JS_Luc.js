@@ -6,19 +6,21 @@ function Accueil(Obj)
     $("#"+Obj).fadeIn(500);
 }
 
-function popup_show_img(src_img)
+function Popup_show_img(src_img)
 {
     
     if($('.blackbackground', window.parent.document).css('display') == 'block')
     {
         $('.blackbackground', window.parent.document).fadeOut(400);
-        $('#popup__show_img', window.parent.document).fadeOut(400);
+        $('#popup_show_img', window.parent.document).fadeOut(400);
+        $('#dialog_form_img', window.parent.document).fadeOut(400);
     }
     else
     {
         centerThis($('.blackbackground', window.parent.document).fadeIn(400));
-        $('#popup__show_img', window.parent.document).attr('src', src_img);
-        centerThis($('#popup__show_img', window.parent.document).fadeIn(400));
+        $('#popup_show_img', window.parent.document).attr('src', src_img).fadeIn(400);
+        $('#dialog_form_img', window.parent.document).fadeIn(400);
+        
     }
     
 }
