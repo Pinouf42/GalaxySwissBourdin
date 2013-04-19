@@ -1,6 +1,5 @@
 <?php
 
-require_once '../include/language.php';
 require_once '../obj/DB.php';
 /*
  * To change this template, choose Tools | Templates
@@ -65,7 +64,7 @@ class Liste {
 
 
                 $Liste .= '<li onclick="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">
-                            <img style="height: 180px; width: 280px;" src = "http://www.whpinouf.com/GalaxySwissBourdin/upload/' . $url_photo_justif . '" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '"/>
+                            <img style="height: 180px; width: 280px;" src = "../upload/' . $url_photo_justif . '" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '"/>
                             <p class="bjqs-caption">' . $lib_dep . ' : ' . $montant . '€ -  Lieu : ' . $lieu . '</p></li>';
             }
 
@@ -86,7 +85,7 @@ class Liste {
 
 
                 $Liste .= '<li onclick ="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')">
-                            <img  src = "http://www.whpinouf.com/GalaxySwissBourdin/upload/' . $url_photo_justif . '" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '" / ></li>';
+                            <img  src = "../upload/' . $url_photo_justif . '" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '" / ></li>';
             }
             $Liste .= "</ul><!-- end Basic jQuery Slider -->
                         <script class=\"secret-source\">
@@ -142,13 +141,12 @@ class Liste {
     }
 
     public function validation_confirm_box($id, $sql) {
-        $Info;      
-        
+        $Info;    
 
         $Info = '<div id="confirm_buton">                
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0]['id_pers'].');" value="#btn_valider#"/>
                 <input id="buton" class="btn_submit" type="button" onclick="validation(0,this.value,'.$id.','.$sql[0]['id_pers'].');" value="#btn_refuser#"/>
-                <input id="buton_annuler" class="btn_submit" type="button" onclick="" value="#btn_annuler#"/>
+                <input id="buton_annuler" class="btn_submit" type="button" onclick="validation(3,this.value,'.$id.','.$sql[0]['id_pers'].');" value="#btn_annuler#"/>
                 </div>';
         
         return $Info;

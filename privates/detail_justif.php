@@ -5,7 +5,6 @@
 require_once '../include/constantes.inc.php';
 require_once '../obj/Liste.php';
 require_once '../obj/Page.php';
-require_once '../include/language.php';
 
 // Préparation du formulaire
 $Liste = new Liste();

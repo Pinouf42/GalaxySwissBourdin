@@ -37,7 +37,7 @@ class DB {
      * @return array Tableau resulat
      */
     public function query($query,$return=1,$aux=1) {
-
+        $tabnom="";
         // Débuggage
         if ($this->DB_DEBUG==1) echo $this->errorMessage ($query);
 

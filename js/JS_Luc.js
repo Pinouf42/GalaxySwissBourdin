@@ -59,15 +59,15 @@ function popup_show(Cls_name,Chaine_info)
     $("#popup_info").fadeIn(400);
 }
 
-function favicon_change(url)
+/*function favicon_change(url)
 {
     $("#favicon").remove();
     $('<link id="favicon" type="image/x-icon" rel="shortcut icon" href="'+url+'" />').appendTo('head');
-}
+}*/
                     
 function popup_hide()
 {                        
-    $("#popup_info").fadeOut();
+    $("#popup_info").fadeOut(300);
 }
                 
 function find() {
@@ -148,6 +148,11 @@ function validation(choix,value_valid,id_note,id_pers)
         }      
         clear_confir_box();        
     }
+    else if(choix==3)
+    {
+         popup_show("info","Redirection dans ");
+         compte_a_rebour("Redirection dans "); 
+    }
 }
 
 function clear_confir_box()
@@ -175,30 +180,30 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
     xhr.send('Q=QnI&id_note='+id_note+'&id_pers='+id_pers+'&comm='+commentaire+'&etat='+etat+'');  
     xhr.onreadystatechange = function() {                            
         if(xhr.readyState == 4) {
-            var Tab_rep_valid =JSON.parse(xhr.responseText);            
+            var Tab_rep_valid =JSON.parse(xhr.responseText); 
             if(Tab_rep_valid.rows!=0)
             {   
                 if(etat==1)
                 {
-                    Chaine_etat="La note de frais à bien été validée</br></br>ous allé être redirigé dans ";
+                    Chaine_etat="La note de frais à bien été validée</br></br>Vous allé être redirigé dans ";
                 }
                 else
                 {
                     Chaine_etat="La note de frais à bien été refusée</br></br>Vous allé être redirigé dans ";       
                 }
                 setTimeout(function(){
+                    alert(Chaine_etat+"--");
                     popup_show("success",Chaine_etat); 
                     compte_a_rebour(Chaine_etat);
                 },1000);
+                
                 
             }
             else if(Tab_rep_valid.rows==0)
             {
                 setTimeout(function(){
                     popup_show("error","Erreur lors de l'insertion en base de donnée. Veuillez recommencer !");
-                },1000);
-                
-                              
+                },1000);    
             }            
         } 
         setTimeout(function(){
