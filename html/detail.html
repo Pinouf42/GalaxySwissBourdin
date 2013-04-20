@@ -102,12 +102,13 @@
                 Validation de la note de frais
             </div>  
             <div id="content_confirm_box">
+                <div id="close_confirm_box"class="close" onclick="validation(1,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);"></div>
                 <b>Êtes vous sur de vouloir #value_validation# la note de frais ?</b>
                 <br/><br/>
                 <b>Commentaire : </b>(255 caractères maximun)<br/>
                 <input id="c_id_pers" type="hidden" value="#c_id_pers#"/>
                 <input id="c_id_note" type="hidden" value="#c_id_note#"/>
-                <input id="valid_commentaire" title="" type="text" maxlength="255" onmouseover="this.title=this.value"/><br/>
+                <textarea id="valid_commentaire" cols="50" maxlength="255"></textarea> <br/>
                 (<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>
                 <input id="buton_valider" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);"/>
                 <input id="buton_refuser" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value,document.getElementById('c_id_note').value,document.getElementById('c_id_pers').value);" />
@@ -136,7 +137,7 @@
                     </div>
                 </div>
                 <div id="dialog_form" class="hide">
-                    <div class="close" onclick="hide_ticket()"></div>
+                    <div id="close_dialog_form" class="close" onclick="hide_ticket()"></div>
                     <div id="header_dialog_form" class="hidden">#titre_detail_justif#</div>
                     <div id="content_dialog" class="hidden">
                         <div id="info_justif">

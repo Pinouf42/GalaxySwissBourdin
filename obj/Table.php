@@ -85,7 +85,7 @@ class Table {
                         <td>' . $date . '</td>
                         <td>' . $nbr_justif . '</td>
                         <td>' . $montant_tot . '</td>
-                        <td title='.$commentaire.'>' . $commentaire_trunque . '</td>
+                        <td title="'.$commentaire.'">' . $commentaire_trunque . '</td>
                         <td id="open_file" onclick="$.pageslide({direction: \'left\', href: \'detail_justif.php?id=' . $id_note . '&nom_prenom=' . $nom_prenom_pers . '&montant_tot=' . $montant_tot . '&date=' . $date .'&comm=' . $commentaire . '\', iframe: \'false\'});"></td>
                         </tr> ';
         }

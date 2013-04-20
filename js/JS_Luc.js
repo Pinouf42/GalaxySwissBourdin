@@ -8,6 +8,10 @@ function Accueil(Obj)
 
 function Popup_show_img(src_img)
 {
+    var img = new Image();
+    img.src = src_img; 
+    var marg_left =img.width/2;
+    var marg_top =img.height/2;    
     
     if($('.blackbackground', window.parent.document).css('display') == 'block')
     {
@@ -16,14 +20,36 @@ function Popup_show_img(src_img)
         $('#dialog_form_img', window.parent.document).fadeOut(400);
     }
     else
-    {
+    {        
+        //$('#dialog_form_img', window.parent.document).css('marginLeft',"-"+ marg_left + 'px');
+        //$('#dialog_form_img', window.parent.document).css('marginTop',"-"+ marg_top + 'px');
         centerThis($('.blackbackground', window.parent.document).fadeIn(400));
+        $('#dialog_form_img', window.parent.document).fadeIn(400); 
         $('#popup_show_img', window.parent.document).attr('src', src_img).fadeIn(400);
-        $('#dialog_form_img', window.parent.document).fadeIn(400);
-        
     }
     
 }
+
+function pageslideclode()
+{
+    var $pageslide = $('#pageslide', window.parent.document);
+    var $BodyPage = $('body',window.parent.document);
+    var slideWidth = $pageslide.outerWidth( true );
+   
+    $pageslide.animate({
+        "right":"-"+slideWidth
+    },400)
+    
+    $BodyPage.animate({
+        "margin-left": "0px"
+    },400,function(){
+        $pageslide.hide();
+        window.top.location = window.top.location;
+    })  
+
+}
+                    
+
 
 function centerThis(element) {
     var windowHeight = $(window).height();
@@ -150,8 +176,8 @@ function validation(choix,value_valid,id_note,id_pers)
     }
     else if(choix==3)
     {
-         popup_show("info","Redirection dans ");
-         compte_a_rebour("Redirection dans "); 
+        popup_show("info","Redirection dans ");
+        compte_a_rebour("Redirection dans ",2); 
     }
 }
 
@@ -159,10 +185,11 @@ function clear_confir_box()
 {
     $("#confirm_box").fadeOut(400,function(){
         str='Êtes vous sur de vouloir #value_validation# la note de frais ?<br/><br/>';
+        str+='<div id="close_confirm_box"class="close" onclick="validation(1,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);"></div>'
         str+='<input id="c_id_pers" type="hidden" value="#c_id_pers#"/>';
         str+='<input id="c_id_note" type="hidden" value="#c_id_note#"/>';
         str+='<b>Commentaire : (255 caractères maximun)</b><br/>';
-        str+='<input id="valid_commentaire" type="text" maxlength="255"/><br/>';
+        str+=' <textarea id="valid_commentaire" cols="50" maxlength="255"></textarea><br/>';
         str+='(<em>Passer vôtre souris sur le champ pour voir vôtre commentaire en entier</em>)<br/><br/>';
         str+='<input id="buton" width="50px" value="#validation_value#" type="button" class="btn_submit" onclick="validation(2,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);"/>';
         str+='<input id="buton_annuler" value="Annuler" type="button" class="btn_submit" onclick="validation(1,this.value,document.getElementById(\'c_id_note\').value,document.getElementById(\'c_id_pers\').value);" />';
@@ -194,7 +221,7 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
                 setTimeout(function(){
                     alert(Chaine_etat+"--");
                     popup_show("success",Chaine_etat); 
-                    compte_a_rebour(Chaine_etat);
+                    compte_a_rebour(Chaine_etat,5);
                 },1000);
                 
                 
@@ -212,24 +239,28 @@ function validation_requete_mssql(id_note,id_pers,commentaire,etat)
     }    
 }
 
-var time=5;
-var time2=1000;
+
+function compte_a_rebour(chaine,tmp)
+{
+    var time=tmp;
+    var time2=1000;
+    action(chaine);
     
-function compte_a_rebour(chaine) {   
+    function action(chaine) {   
     
-    if(time>=0) {
+        if(time>=0) {
         
-        document.getElementById("popup_info").innerHTML=chaine+time+" secondes"; 
+            document.getElementById("popup_info").innerHTML=chaine+time+" secondes"; 
         
-        time=time-1
-        setTimeout(function(){
-            compte_a_rebour(chaine);
-        }, time2);
-    }
-    else {
-        window.top.location = window.top.location;
+            time=time-1
+            setTimeout(function(){
+                action(chaine);
+            }, time2);
+        }
+        else {            
+            pageslideclode();            
+        }
     }
 }
-
 
 
