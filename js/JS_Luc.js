@@ -1,5 +1,4 @@
 
-
 var g_Pays = false;
 function Accueil(Obj)
 {
@@ -173,12 +172,7 @@ function validation(choix,value_valid,id_note,id_pers)
             validation_requete_mssql(id_note,id_pers,commentaire, etat);            
         }      
         clear_confir_box();        
-    }
-    else if(choix==3)
-    {
-        popup_show("info","Redirection dans ");
-        compte_a_rebour("Redirection dans ",2); 
-    }
+    }    
 }
 
 function clear_confir_box()
