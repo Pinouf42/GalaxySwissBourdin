@@ -67,9 +67,13 @@ $sql .=' ORDER BY date_validation DESC';
 
 $data = $Page->DB->query($sql); //mssql_query($sql);
 //print_r($data);die();
-$content = $Table->tableDeb();
+$content = $Table->tableDeb('id="historique_tab"');
 $content.='<thead>
-            <tr><th scope="col"><input type=\'text\'></input></th><th scope="col"><input type=\'text\'></input></th><th scope="col"><input type=\'text\'></input></th><th scope="col"><input type=\'text\'></input></th></tr>
+            <tr><th scope="col"><input type=\'text\' onkeyup=\'filtre(0,this.value);\'></input></th>
+                <th scope="col"><input type=\'text\' onkeyup=\'filtre(1,this.value);\'></input></th>
+                <th scope="col"><input type=\'text\' onkeyup=\'filtre(2,this.value);\'></input></th>
+                <th scope="col"><input type=\'text\' onkeyup=\'filtre(3,this.value);\'></input></th>
+                </tr>
             <tr><th scope="col">N°</th><th scope="col">Date validation</th><th scope="col">Etat</th><th scope="col">Commentaire</th></tr>
             </thead>';
 
