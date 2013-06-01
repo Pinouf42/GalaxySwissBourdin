@@ -1,7 +1,7 @@
 <?php
 
 $username = "sa";
-$password = "p@ssw0rd";
-$database = "GSB";
-$host = "178.32.241.99";
+$password = "sio2013";
+$database = "DB_GSB_Equipe3";
+$host = "labdev-exploit.gsb.lan";
 ?>

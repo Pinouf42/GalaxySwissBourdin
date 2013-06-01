@@ -16,7 +16,7 @@ function query_bdd() {
     $DB = new DB();
     
         
-    $commentaire = $_POST['comm'];
+    $commentaire = base64_encode($_POST['comm']);
     $etat = $_POST['etat'];
     $id_pers = $_POST['id_pers'];
     $id_note = $_POST ['id_note'];

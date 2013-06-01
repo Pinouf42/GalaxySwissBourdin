@@ -5,6 +5,7 @@ require_once '../include/menu.inc.php';
 require_once '../obj/Page.php';
 require_once '../obj/Table.php';
 require_once '../obj/DB.php';
+//include '../actions/verif_session.php';
 
 //session_start();
 $_SESSION['mode']=4;
@@ -82,6 +83,11 @@ $i =0;
 // pour chaque ligne
 for($i=0; $i<$data['nblig'];$i++) 
 { 
+	/*$sql = 'SELECT commentaire_note from validation v, note_frais nf
+			WHERE v.id_note = nf.id_note';
+	$nomNote = $Page->DB->query($sql); //mssql_query($sql);
+	print_r($nomNote)die();*/
+	
     if ($data[$i]['etat_validation'] == 0)
         $etat_valid = "Rejeté";
     else
@@ -98,7 +104,7 @@ for($i=0; $i<$data['nblig'];$i++)
                     array('attribut'=>'class=\'etat_valid'.$data[$i]['etat_validation'].'\'', 
                         'valeur'=>$etat_valid),
                     array('attribut'=>'', 
-                        'valeur'=>$data[$i]['commentaire_validation']));
+                        'valeur'=>base64_decode($data[$i]['commentaire_validation'])));
 
     $content.=$Table->tableCreeLigneTD($ligneTD);
 }  

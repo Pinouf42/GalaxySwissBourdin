@@ -60,7 +60,7 @@ else
 
                         mssql_connect($host, $username, $password);
                         mssql_select_db($database);
-                        $query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES ('".$montant."', '".$lieu."', '".$commentaire."', '".$type."' , '".$new_filename."', '".$id_note."')";
+                        $query = "INSERT INTO JUSTIFICATIF(montant, lieu, commentaire, id_dep, url_photo_justif, id_note) VALUES ('".$montant."', '".$lieu."', '".base64_encode($commentaire)."', '".$type."' , '".$new_filename."', '".$id_note."')";
                         if(mssql_query($query))
                         {
                             $data = $new_filename; //le retour sera le nom du fichier.

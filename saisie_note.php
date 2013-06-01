@@ -225,7 +225,7 @@ else
   </div>
 </div>
 <center>
-    <input id="nom_note" name="nom_note" type="text" maxlength="100" value="<?php echo $commentaire_note; ?>" class="saisie_note"/>
+    <input id="nom_note" name="nom_note" type="text" maxlength="100" value="<?php echo base64_decode($commentaire_note); ?>" class="saisie_note"/>
     <br/><br/>
     <a href="#" class="button yellow" onclick="change_nom_note(<?php echo $id_note; ?>, $('#nom_note').val());$(this).removeClass('button yellow').addClass('button grey');">Changer le commentaire de la note</a>
     <br/><br/>

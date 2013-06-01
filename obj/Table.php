@@ -65,7 +65,7 @@ class Table {
             $date = strftime("%d %B %Y", strtotime($sql[$i]["datesoumission_note"]));
             $nom_prenom_pers = $sql[$i]["prenom_pers"]." ".$sql[$i]["nom_pers"];            
             $id_note = $sql[$i]["id_note"];
-            $commentaire = $sql[$i]["commentaire_note"];
+            $commentaire = base64_decode($sql[$i]["commentaire_note"]);
             $montant_tot=0;
             $nbr_justif = $sql_montant[$id_note]['nblig'];
             

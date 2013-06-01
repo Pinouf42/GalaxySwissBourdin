@@ -60,7 +60,7 @@ class Liste {
                 $url_photo_justif = $sql[$i]["url_photo_justif"];
                 $id_justif = $sql[$i]["id_justif"];
                 $lieu = $sql[$i]["lieu"];
-                $commentaire = $sql[$i]["commentaire"];
+                $commentaire = base64_decode($sql[$i]["commentaire"]);
 
 
                 $Liste .= '<li onclick="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')" style="height: 180px; width: 280px; float: left; position: relative; display: list-item;">
@@ -80,11 +80,11 @@ class Liste {
                 $url_photo_justif = $sql[$i]["url_photo_justif"];
                 $id_justif = $sql[$i]["id_justif"];
                 $lieu = $sql[$i]["lieu"];
-                $commentaire = $sql[$i]["commentaire"];
+                $commentaire = base64_decode($sql[$i]["commentaire"]);
 
 
 
-                $Liste .= '<li onclick ="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . $commentaire . '\',\'' . $url_photo_justif . '\')">
+                $Liste .= '<li onclick ="show_ticket(\'' . $id_justif . '\',\'' . $lib_dep . '\',\'' . $montant . '\',\'' . $lieu . '\',\'' . addslashes($commentaire) . '\',\'' . $url_photo_justif . '\')">
                             <img  src = "../upload/' . $url_photo_justif . '" title = "' . $lib_dep . ' : ' . $montant . '€ - Lieu : ' . $lieu . '" / ></li>';
             }
             $Liste .= "</ul><!-- end Basic jQuery Slider -->
