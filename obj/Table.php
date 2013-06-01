@@ -65,7 +65,7 @@ class Table {
             $date = strftime("%d %B %Y", strtotime($sql[$i]["datesoumission_note"]));
             $nom_prenom_pers = $sql[$i]["prenom_pers"]." ".$sql[$i]["nom_pers"];            
             $id_note = $sql[$i]["id_note"];
-            $commentaire = base64_decode($sql[$i]["commentaire_note"]);
+            $commentaire =addslashes(base64_decode($sql[$i]["commentaire_note"]));
             $montant_tot=0;
             $nbr_justif = $sql_montant[$id_note]['nblig'];
             
@@ -77,7 +77,7 @@ class Table {
             $montant_tot= $montant_tot." €";
             
 
-            $commentaire_trunque =$this->trunque($commentaire, "20");
+            $commentaire_trunque =  stripslashes($this->trunque($commentaire, "20"));
 
             $table .= '<tr class="tr_justificatif">
                         <td>' . $id_note . '</td>
